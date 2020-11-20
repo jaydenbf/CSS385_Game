@@ -120,7 +120,6 @@ public class GameManager : MonoBehaviour
                     default:
                         break;
                 }
-                purchaseState = PurchaseState.None;
                 reservedTiles.Add(tilePos);
             }
         }
