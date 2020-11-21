@@ -57,6 +57,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Shop.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyBehavior.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemySpawnSystem.cs" />
      <None Include="Assets\Scripts\ReservedTiles.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Victor Shaw/Unity Projects/CSS385_Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
