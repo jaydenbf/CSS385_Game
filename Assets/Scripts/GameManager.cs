@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         reservedTiles = new ArrayList();
 
         // Add lines to tile
-        string[] lines = System.IO.File.ReadAllLines("Assets/ReservedTiles.txt");
+        string[] lines = System.IO.File.ReadAllLines("Assets/Scripts/ReservedTiles.txt");
         foreach (string line in lines)
         {
             string[] coords = line.Split(',');
