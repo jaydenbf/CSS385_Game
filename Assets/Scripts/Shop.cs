@@ -1,7 +1,9 @@
-﻿    using UnityEngine;
+﻿using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
+    public EnemySpawnSystem es;
+
     public void PurchaseDefense1()
     {
         Debug.Log("Defense 1 Purchased");
@@ -36,5 +38,16 @@ public class Shop : MonoBehaviour
             GameManager.purchaseState = GameManager.PurchaseState.None;
         else
             GameManager.purchaseState = GameManager.PurchaseState.Defense4;
+    }
+
+    public void StartWave()
+    {
+        Debug.Log("Wave begin");
+        es.startWave = true;
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
