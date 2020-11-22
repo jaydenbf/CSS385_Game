@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProject", "AstarPathfindingProject.csproj", "{46E9F6DA-BEAA-E4C9-1F94-122C7CC4DDEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{244D9DEA-2CBF-40F6-13FA-549C33C11C9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{43404BAC-1A36-62AE-A88E-DB7158917340}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProjectEditor", "AstarPathfindingProjectEditor.csproj", "{0E939C46-D546-9F1D-B9A5-A614DC40F046}"
 EndProject
@@ -19,10 +21,10 @@ Global
 		{46E9F6DA-BEAA-E4C9-1F94-122C7CC4DDEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46E9F6DA-BEAA-E4C9-1F94-122C7CC4DDEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46E9F6DA-BEAA-E4C9-1F94-122C7CC4DDEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{244D9DEA-2CBF-40F6-13FA-549C33C11C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{244D9DEA-2CBF-40F6-13FA-549C33C11C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{244D9DEA-2CBF-40F6-13FA-549C33C11C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{244D9DEA-2CBF-40F6-13FA-549C33C11C9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43404BAC-1A36-62AE-A88E-DB7158917340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43404BAC-1A36-62AE-A88E-DB7158917340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43404BAC-1A36-62AE-A88E-DB7158917340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43404BAC-1A36-62AE-A88E-DB7158917340}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0E939C46-D546-9F1D-B9A5-A614DC40F046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E939C46-D546-9F1D-B9A5-A614DC40F046}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E939C46-D546-9F1D-B9A5-A614DC40F046}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -34,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8402328D-4E68-4983-A1E4-B84D0B84E847}
 	EndGlobalSection
 EndGlobal

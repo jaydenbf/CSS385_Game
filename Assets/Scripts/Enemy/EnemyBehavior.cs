@@ -12,6 +12,7 @@ public class EnemyBehavior : MonoBehaviour
     public Healthbar healthBar;
     public int reward;
     public int numberOfLives;
+    public Animator animator;
 
     void Awake()
     {
@@ -22,6 +23,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
+        animator.SetInteger("Health", health);
         this.transform.rotation = Quaternion.identity;
         IsAlive();
 
@@ -72,6 +74,7 @@ public class EnemyBehavior : MonoBehaviour
         UnityEngine.Debug.Log("Destroying Enemy");
 
         // Destroy(transform.parent.gameObject);
+        
         GameManager.cash += reward;
         Destroy(this.gameObject);
     }
