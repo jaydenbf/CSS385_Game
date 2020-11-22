@@ -42,6 +42,8 @@ public class Projectile : MonoBehaviour
             return;
         }
 
+        Vector3 v = target.position - transform.position;
+        transform.up = Vector3.LerpUnclamped(transform.up, v, 1);
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
