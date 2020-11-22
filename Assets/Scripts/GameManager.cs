@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -119,6 +120,24 @@ public class GameManager : MonoBehaviour
         }
 
         updateUI();
+        Loss();
+        Win();
+    }
+
+    private void Loss()
+    {
+        if(lives <= 0)
+        {
+            SceneManager.LoadScene("Loss Scene");
+        }
+    }
+
+    private void Win()
+    {
+        if(round >= 8)
+        {
+            SceneManager.LoadScene("Win Scene");
+        }
     }
 
     private void UpdateCursorTile(Vector3Int tilePos)
