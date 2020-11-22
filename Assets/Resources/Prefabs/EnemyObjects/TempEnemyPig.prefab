@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1829602227
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7129364661752030600, guid: 844dc27ce404ebc459dfa413005d0d1e,
     type: 3}
@@ -184,6 +184,8 @@ MonoBehaviour:
   health: 100
   targetpos: {fileID: 0}
   healthBar: {fileID: 2537282800513666531}
+  reward: 5
+  numberOfLives: 1
 --- !u!50 &4021426019419514252
 Rigidbody2D:
   serializedVersion: 4

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+
     public enum PurchaseState 
     {
         None,
@@ -25,6 +27,14 @@ public class GameManager : MonoBehaviour
     private static Tile canPlace;
     private static Tile cannotPlace;
     private static Tile background;
+
+    public static int lives = 100;
+    public static int cash = 100;
+    public static int round = 1;
+
+    public Text livesUI;
+    public Text cashUI;
+    public Text roundUI;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +68,8 @@ public class GameManager : MonoBehaviour
         Debug.Assert(canPlace != null);
         // Debug.Assert(cannotPlace != null);
         Debug.Assert(background != null);
+
+        Vector3 dir = transform.transform.localPosition - transform.position;
     }
 
     private void OnGUI()
@@ -105,6 +117,8 @@ public class GameManager : MonoBehaviour
                 PlaceDefense(tilePos);
             }
         }
+
+        updateUI();
     }
 
     private void UpdateCursorTile(Vector3Int tilePos)
@@ -172,5 +186,12 @@ public class GameManager : MonoBehaviour
                 break;
         }
         reservedTiles.Add(tilePos);
+    }
+
+    public void updateUI()
+    {
+        livesUI.text = "Lives:\t\t" + lives;
+        cashUI.text = "Cash:\t\t" + cash;
+        roundUI.text = "Round:\t" + round;
     }
 }

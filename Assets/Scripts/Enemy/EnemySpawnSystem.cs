@@ -121,6 +121,7 @@ public class EnemySpawnSystem : MonoBehaviour
                 cowTimePast = 0f;
                 pigTimePast = 0f;
                 llamaTimePast = 0f;
+                GameManager.round++;
                 return;
             }
 
@@ -268,7 +269,7 @@ public class EnemySpawnSystem : MonoBehaviour
 
         // Generate -7f to 5f
         Vector3 pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(-7, 5), 0));
-        pos.z += -0.5f;
+        pos.z = 0f;
         return pos;
     }
     #endregion

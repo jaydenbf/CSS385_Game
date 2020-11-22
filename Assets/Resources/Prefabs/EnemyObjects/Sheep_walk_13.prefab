@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055962195427859146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.131, y: -0.009, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 576863578007329384}
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1829602227
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 577576875353282209, guid: 9231b02c54cee0e4db6480ac940f6088, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -182,6 +182,8 @@ MonoBehaviour:
   health: 100
   targetpos: {fileID: 0}
   healthBar: {fileID: 5288348078587872656}
+  reward: 5
+  numberOfLives: 1
 --- !u!61 &1485849573082281135
 BoxCollider2D:
   m_ObjectHideFlags: 0

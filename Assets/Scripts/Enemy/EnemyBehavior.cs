@@ -10,6 +10,8 @@ public class EnemyBehavior : MonoBehaviour
     public int health = 100;
     public DestinationSetter targetpos;
     public Healthbar healthBar;
+    public int reward;
+    public int numberOfLives;
 
     void Awake()
     {
@@ -23,15 +25,9 @@ public class EnemyBehavior : MonoBehaviour
         this.transform.rotation = Quaternion.identity;
         IsAlive();
 
-        // Gets within the point with 26.1f. IDK why, but its that number
-        if (InRange(26.1f))
+        if(InRange(1f) || !alive)
         {
-            UnityEngine.Debug.Log("Entering Kill Rnange");
-            DestroyEnemy();
-        }
-
-        if(InRange(26.1f) && !alive)
-        {
+            GameManager.lives -= numberOfLives;
             DestroyEnemy();
         }
     }
@@ -75,8 +71,10 @@ public class EnemyBehavior : MonoBehaviour
     {
         UnityEngine.Debug.Log("Destroying Enemy");
 
-         // Destroy(transform.parent.gameObject);
-         Destroy(this.gameObject);
+        // Destroy(transform.parent.gameObject);
+        Debug.Log(GameManager.cash + " += " + reward + " " + (GameManager.cash + reward));
+        GameManager.cash += reward;
+        Destroy(this.gameObject);
     }
 
     private void ChangeTarget()

@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 1524825042069359612}
   - component: {fileID: 842463472322962450}
   - component: {fileID: -2112862601137311281}
-  m_Layer: 0
+  - component: {fileID: -8587596827883317890}
+  - component: {fileID: -9145100276256985394}
+  m_Layer: 10
   m_Name: Defense2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 285925787
-  m_SortingLayer: 1
+  m_SortingLayerID: 1447607435
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a79c7674df3583b499184658a61abd26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,7 +100,55 @@ MonoBehaviour:
   target: {fileID: 0}
   range: 14
   attackSpeed: 0.5
+  damage: 50
   enemyTag: Enemy
   Projectile: {fileID: 8976793673133718967, guid: 624b2fac0a5dbf14fa714699bf4023db,
     type: 3}
   firePoint: {fileID: 0}
+--- !u!50 &-8587596827883317890
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767202656326917818}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &-9145100276256985394
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767202656326917818}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 5, y: 5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
