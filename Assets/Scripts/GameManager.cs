@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
             if (reservedTiles.Contains(tilePos))
             {
                 Debug.Log("This tile is reserved.");
-                //purchaseState = PurchaseState.None;
+                purchaseState = PurchaseState.None;
             }
             else if (purchaseState != PurchaseState.None)
             {
