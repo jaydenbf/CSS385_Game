@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Shop.cs" />
     <Compile Include="Assets\Scripts\Towers\Projectile.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Healthbar.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Scripts\ReservedTiles.txt" />
