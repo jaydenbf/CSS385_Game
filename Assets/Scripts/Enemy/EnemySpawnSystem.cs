@@ -39,7 +39,7 @@ public class EnemySpawnSystem : MonoBehaviour
     #endregion
 
     #region Wave Spawners
-    private int waveCounter = 0;
+    public int waveCounter = 0;
     public int maxWaveCounter = 7;
     public bool startWave = false;
     public bool spawnWave = false;
@@ -115,7 +115,12 @@ public class EnemySpawnSystem : MonoBehaviour
         {
             if (WaveEnd())
             {
+                waveCounter++;
                 spawnWave = false;
+                chickenTimePast = 0f;
+                cowTimePast = 0f;
+                pigTimePast = 0f;
+                llamaTimePast = 0f;
                 return;
             }
 
@@ -176,7 +181,7 @@ public class EnemySpawnSystem : MonoBehaviour
         PickDestination();
 
         // Starting pos
-        e.transform.position = generateValue(0f, 0f, 1f, 1f);
+        e.transform.position = generateValue();
         //e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -194,7 +199,7 @@ public class EnemySpawnSystem : MonoBehaviour
         PickDestination();
 
         // Starting pos
-        e.transform.position = generateValue(0f, 0f, 1f, 1f);
+        e.transform.position = generateValue();
         //e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -212,7 +217,7 @@ public class EnemySpawnSystem : MonoBehaviour
         PickDestination();
 
         // Starting pos
-        e.transform.position = generateValue(0f, 0f, 1f, 1f);
+        e.transform.position = generateValue();
         // e.transform.rotation = Quaternion.identity(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -230,7 +235,7 @@ public class EnemySpawnSystem : MonoBehaviour
         PickDestination();
 
         // Starting pos
-        e.transform.position = generateValue(0f, 0f, 1f, 1f);
+        e.transform.position = generateValue();
         // e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -241,7 +246,7 @@ public class EnemySpawnSystem : MonoBehaviour
 
     private void PickDestination()
     {
-        int num = UnityEngine.Random.Range(0, 2);
+        int num = UnityEngine.Random.Range(0, 3);
         if(num == 0)
         {
             endDestination = GameObject.Find("Top Endpoint");
@@ -256,13 +261,11 @@ public class EnemySpawnSystem : MonoBehaviour
         }
     }
 
-    private Vector3 generateValue(float minX, float maxX, float minY, float maxY)
+    private Vector3 generateValue()
     {
         // Generate -7f to 5f
         // groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(-7f, 5f), 0));
-        
-        float newX = UnityEngine.Random.Range(minX, maxX);
-        float newY = UnityEngine.Random.Range(minY, maxY);
+
         // Generate -7f to 5f
         Vector3 pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(-7, 5), 0));
         pos.z += -0.5f;

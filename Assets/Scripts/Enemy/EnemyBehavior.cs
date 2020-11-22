@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding; 
+using Pathfinding;
+using UnityEngine.Tilemaps;
 
 public class EnemyBehavior : MonoBehaviour
 {
     public bool alive = true;
     public int health = 100;
-    public DestinationSetter targetpos; 
-
+    public DestinationSetter targetpos;
 
     void Awake()
     {
@@ -17,6 +17,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
+        this.transform.rotation = Quaternion.identity;
         IsAlive();
 
         // Gets within the point with 26.1f. IDK why, but its that number
@@ -65,7 +66,7 @@ public class EnemyBehavior : MonoBehaviour
         UnityEngine.Debug.Log("Destroying Enemy");
 
          // Destroy(transform.parent.gameObject);
-         // Destroy(this.gameObject);
+         Destroy(this.gameObject);
     }
 
     private void ChangeTarget()
