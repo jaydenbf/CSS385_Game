@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5498447239893164194}
   m_Layer: 0
   m_Name: TempEnemyChicken
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
