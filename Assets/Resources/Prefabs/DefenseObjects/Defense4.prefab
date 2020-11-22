@@ -96,8 +96,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 15
-  attackSpeed: 1
+  range: 5
+  attackSpeed: 0.5
+  damage: 50
   enemyTag: Enemy
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 1772581913391082171, guid: ee2f5689be8728041bc4b953b77391e0,
+    type: 3}
   firePoint: {fileID: 0}
