@@ -23,7 +23,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
-        animator.SetInteger("Health", health);
+        //animator.SetInteger("Health", health);
         this.transform.rotation = Quaternion.identity;
         IsAlive();
 
