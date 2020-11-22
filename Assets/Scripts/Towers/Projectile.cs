@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     private Transform target;
 
     public float speed = 70f;
+    public float AoERadius = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -46,8 +47,33 @@ public class Projectile : MonoBehaviour
 
     void HitTarget()
     {
-        // lower enemy hp
-        // play hit effect?
+        
+        if (AoERadius > 0)
+        {
+            AoEDamage();
+        } else
+        {
+            Damage(target);
+        }
+
         Destroy(gameObject);
+    }
+
+    void Damage(Transform enemy)
+    {
+        // lower enemy hp
+        // play hit effect
+    }
+
+    void AoEDamage()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, AoERadius);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.tag == "Enemy")
+            {
+                Damage(collider.transform);
+            }
+        }
     }
 }
