@@ -13840,6 +13840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameTimer: 0
   groundTiles: {fileID: 918474484}
+<<<<<<< HEAD
   eFlyingEye: {fileID: 3566997359208347666, guid: eb0713e0ebc7e3840a3fd22e40273183,
     type: 3}
   eGoblin: {fileID: 5024354077371357888, guid: ad057d7f226cde04f9b6337c87771e58, type: 3}
@@ -13851,6 +13852,17 @@ MonoBehaviour:
   goblinSpawnTime: 6
   mushroomSpawnTime: 7
   skeletonSpawnTime: 8
+=======
+  eChicken: {fileID: 3566997359208347666, guid: eb0713e0ebc7e3840a3fd22e40273183,
+    type: 3}
+  eCow: {fileID: 5024354077371357888, guid: ad057d7f226cde04f9b6337c87771e58, type: 3}
+  ePig: {fileID: 4079133512548199154, guid: 7d1326ac56c187242a7cb685c72f5d51, type: 3}
+  eLlama: {fileID: 7579890877468130132, guid: ae34fbcb7126e2f4d9d6f3a3f9d503d3, type: 3}
+  chickenSpawnTime: 4
+  cowSpawnTime: 5
+  pigSpawnTime: 6
+  llamaSpawnTime: 7
+>>>>>>> ef4fe529974129b6c3a3974f1a5115a2a2a81eb2
   waveCounter: 0
   maxWaveCounter: 7
   startWave: 0
