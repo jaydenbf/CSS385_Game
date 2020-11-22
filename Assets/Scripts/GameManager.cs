@@ -26,8 +26,6 @@ public class GameManager : MonoBehaviour
     private static Tile cannotPlace;
     private static Tile background;
 
-    private static int cash = 1000;
-
     // Start is called before the first frame update
     void Start()
     {

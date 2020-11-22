@@ -96,4 +96,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  AoERadius: 10
+  AoERadius: 3
+  enemyTag: Enemy

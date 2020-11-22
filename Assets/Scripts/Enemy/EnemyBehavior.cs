@@ -9,10 +9,13 @@ public class EnemyBehavior : MonoBehaviour
     public bool alive = true;
     public int health = 100;
     public DestinationSetter targetpos;
+    public Healthbar healthBar;
 
     void Awake()
     {
         targetpos = GetComponent<DestinationSetter>();
+        healthBar.SetMaxHealth(health);
+        healthBar.gameObject.SetActive(false);
     }
 
     void Update()
@@ -52,6 +55,8 @@ public class EnemyBehavior : MonoBehaviour
         if (InRange(100f))
         {
             health -= damage;
+            healthBar.SetHealth(health);
+            healthBar.gameObject.SetActive(true);
         }
         if (health <= 0)
         {

@@ -9,6 +9,9 @@ public class Projectile : MonoBehaviour
 
     public float speed = 70f;
     public float AoERadius = 0f;
+    public float attackBounces = 0f;
+    public float bounceRange = 4f;
+    public string enemyTag = "Enemy";
 
     private int damage = 50;
 
@@ -58,27 +61,62 @@ public class Projectile : MonoBehaviour
             Damage(target);
         }
 
-        Destroy(gameObject);
+        if (attackBounces > 0)
+        {
+            attackBounces--;
+            FindNewTarget();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Damage(Transform enemy)
     {
         EnemyBehavior targetEnemy = enemy.GetComponentInParent<EnemyBehavior>();
         targetEnemy.AttackDamageRecieved(damage);
-        Debug.Log("Projectile.Damage()");
         // play hit effect (TODO)
     }
 
     void AoEDamage()
     {
-        // collider search is not working, fix (TODO)
-        Collider[] colliders = Physics.OverlapSphere(transform.position, AoERadius);
-        foreach (Collider collider in colliders)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        foreach (GameObject enemy in enemies)
         {
-            if (collider.tag == "Enemy")
+            float DistanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (DistanceToEnemy < AoERadius)
             {
-                Damage(collider.transform);
+                Damage(enemy.transform);
             }
+        }
+    }
+
+    private void FindNewTarget()
+    {
+        // find all enemies
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+
+        // test all enemies and find the closest
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestEnemy = null;
+        foreach (GameObject enemy in enemies)
+        {
+            float DistanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (DistanceToEnemy < shortestDistance && DistanceToEnemy > .1)
+            {
+                shortestDistance = DistanceToEnemy;
+                nearestEnemy = enemy;
+            }
+        }
+
+        if (nearestEnemy != null && shortestDistance <= bounceRange)
+        {
+            target = nearestEnemy.transform;
+        }
+        else
+        {
+            target = null;
         }
     }
 }

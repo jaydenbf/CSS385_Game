@@ -15,11 +15,11 @@ TagManager:
   - 
   - 
   - A*Borders
-  - Path
-  - Tower
-  - Enemy
-  - Projectiles
-  - Tower UI
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -42,27 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Hidden
-    uniqueID: 662104629
-    locked: 0
   - name: Objects
     uniqueID: 285925787
-    locked: 0
-  - name: Grass
-    uniqueID: 1248393309
-    locked: 0
-  - name: Path
-    uniqueID: 3344295909
-    locked: 0
-  - name: Enemy
-    uniqueID: 2465365069
-    locked: 0
-  - name: Tower
-    uniqueID: 1447607435
-    locked: 0
-  - name: Projectiles
-    uniqueID: 516235563
-    locked: 0
-  - name: Tower UI
-    uniqueID: 1522468203
     locked: 0
