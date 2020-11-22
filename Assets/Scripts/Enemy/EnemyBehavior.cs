@@ -49,9 +49,14 @@ public class EnemyBehavior : MonoBehaviour
     public void AttackDamageRecieved(int damage)
     {
         // Takes damage when in a certain range
-        if (InRange(30f))
+        if (InRange(100f))
         {
             health -= damage;
+        }
+        if (health <= 0)
+        {
+            DestroyEnemy();
+            // Enemy destroyed! - add currency to shop (TODO)
         }
     }
 
@@ -81,7 +86,7 @@ public class EnemyBehavior : MonoBehaviour
         Vector3 targetPos2 = GameObject.Find("Middle Endpoint").transform.position;
         Vector3 targetPos3 = GameObject.Find("Bottom Endpoint").transform.position;
         float distance = Vector3.Distance(targetPos1, this.transform.position);
-        UnityEngine.Debug.Log(distance);
+        //UnityEngine.Debug.Log(distance);
 
         // Check if its near the target range 
         if ((targetPos1 - this.transform.position).magnitude <= range

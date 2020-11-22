@@ -9,6 +9,7 @@ public class Tower1 : MonoBehaviour
     [Header("Attributes")]
     public float range = 15f;
     public float attackSpeed = 1f;
+    public int damage = 50;
 
     [Header("Other")]
     private float fireCooldown = 0f;

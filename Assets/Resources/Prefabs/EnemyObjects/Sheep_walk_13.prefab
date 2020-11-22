@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3764287863691437377}
   - component: {fileID: -4802051536599835593}
   - component: {fileID: 3332168735492727119}
+  - component: {fileID: 1485849573082281135}
   m_Layer: 0
   m_Name: Sheep_walk_13
   m_TagString: Enemy
@@ -179,3 +180,29 @@ MonoBehaviour:
   alive: 1
   health: 100
   targetpos: {fileID: 0}
+--- !u!61 &1485849573082281135
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055962195427859146}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.28, y: 1.28}
+  m_EdgeRadius: 0

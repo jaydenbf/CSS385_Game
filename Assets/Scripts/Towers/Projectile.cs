@@ -10,10 +10,13 @@ public class Projectile : MonoBehaviour
     public float speed = 70f;
     public float AoERadius = 0f;
 
+    private int damage = 50;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Tower1 parentTower = this.transform.GetComponentInParent<Tower1>();
+        //damage = parentTower.damage;
     }
 
     // Update is called once per frame
@@ -47,7 +50,6 @@ public class Projectile : MonoBehaviour
 
     void HitTarget()
     {
-        
         if (AoERadius > 0)
         {
             AoEDamage();
@@ -61,12 +63,15 @@ public class Projectile : MonoBehaviour
 
     void Damage(Transform enemy)
     {
-        // lower enemy hp
-        // play hit effect
+        EnemyBehavior targetEnemy = enemy.GetComponentInParent<EnemyBehavior>();
+        targetEnemy.AttackDamageRecieved(damage);
+        Debug.Log("Projectile.Damage()");
+        // play hit effect (TODO)
     }
 
     void AoEDamage()
     {
+        // collider search is not working, fix (TODO)
         Collider[] colliders = Physics.OverlapSphere(transform.position, AoERadius);
         foreach (Collider collider in colliders)
         {
