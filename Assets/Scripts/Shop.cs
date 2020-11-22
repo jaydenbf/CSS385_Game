@@ -50,14 +50,4 @@ public class Shop : MonoBehaviour
     {
         Application.Quit();
     }
-
-    public void Win()
-    {
-
-    }
-
-    public void Loss()
-    {
-
-    }
 }
