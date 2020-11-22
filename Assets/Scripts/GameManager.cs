@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         Vector3 dir = transform.transform.localPosition - transform.position;
     }
 
-    private void OnGUI()
+    /*private void OnGUI()
     {
         // printing enums is really hard apparently, this was easier
         switch(purchaseState)
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
                 GUI.Label(new Rect(10, 10, 400, 20), "Status: will place Defense 4");
                 break;
         }
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
