@@ -19,6 +19,8 @@ public class Tower1 : MonoBehaviour
     public GameObject Projectile;
     public Transform firePoint;
 
+    public int cost = 10;
+
     // Start is called before the first frame update
     void Start()
     {

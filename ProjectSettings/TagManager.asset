@@ -54,6 +54,9 @@ TagManager:
   - name: Path
     uniqueID: 3344295909
     locked: 0
+  - name: Tilemap
+    uniqueID: 1941333535
+    locked: 0
   - name: Enemy
     uniqueID: 2465365069
     locked: 0

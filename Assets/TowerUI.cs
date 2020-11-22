@@ -25,6 +25,7 @@ public class TowerUI : MonoBehaviour
             else
             {
                 var temp = Instantiate(tower, GetMouseWorldPosition(), Quaternion.identity);
+                GameManager.cash -= temp.GetComponent<Tower1>().cost;
                 Destroy(gameObject);
             }
         }

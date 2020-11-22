@@ -72,7 +72,6 @@ public class EnemyBehavior : MonoBehaviour
         UnityEngine.Debug.Log("Destroying Enemy");
 
         // Destroy(transform.parent.gameObject);
-        Debug.Log(GameManager.cash + " += " + reward + " " + (GameManager.cash + reward));
         GameManager.cash += reward;
         Destroy(this.gameObject);
     }

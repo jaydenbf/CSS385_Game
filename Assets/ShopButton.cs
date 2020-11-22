@@ -8,6 +8,7 @@ public class ShopButton : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 {
     public GameObject tower;
     public GameObject towerUI;
+    bool canAfford = false;
 
     void Start()
     {
@@ -16,7 +17,8 @@ public class ShopButton : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
     void Update()
     {
-
+        checkAffordability();
+        updateColor();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -26,21 +28,20 @@ public class ShopButton : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        var temp = Instantiate(towerUI, GetMouseWorldPosition(), Quaternion.identity);
-        temp.GetComponent<TowerUI>().tower = tower;
+        if(canAfford)
+        {
+            var temp = Instantiate(towerUI, GetMouseWorldPosition(), Quaternion.identity);
+            temp.GetComponent<TowerUI>().tower = tower;
 
-        Color c = new Color32(255, 255, 255, 128);
-        GetComponent<Image>().color = c;
+            Color c = new Color32(255, 255, 255, 128);
+            GetComponent<Image>().color = c;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         Color c = new Color32(255, 255, 255, 255);
         GetComponent<Image>().color = c;
-        //Color c = GetComponent<Image>().color = Color.red;
-        //Color c = GetComponent<SpriteRenderer>().color;
-        //c.a = 1f;
-        //GetComponent<SpriteRenderer>().color = c;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -75,5 +76,34 @@ public class ShopButton : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     public void OnPointerClick(PointerEventData eventData)
     {
 
+    }
+
+    void checkAffordability()
+    {
+        var temp = Instantiate(tower, new Vector3(100, 100, 100), Quaternion.identity);
+        int cost = temp.GetComponent<Tower1>().cost;
+
+        if (GameManager.cash - cost >= 0)
+        {
+            canAfford = true;
+        } else
+        {
+            canAfford = false;
+        }
+
+        Destroy(temp);
+    }
+
+    void updateColor()
+    {
+        if(canAfford)
+        {
+            Color c = new Color32(255, 255, 255, 255);
+            GetComponent<Image>().color = c;
+        } else
+        {
+            Color c = new Color32(191, 191, 191, 191);
+            GetComponent<Image>().color = c;
+        }
     }
 }
