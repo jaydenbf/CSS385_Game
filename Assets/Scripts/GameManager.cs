@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
         Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
         Vector3Int tilePos = groundTiles.WorldToCell(worldPoint);
 
-        UpdateCursorTile(tilePos);
+        // UpdateCursorTile(tilePos);
 
         if (Input.GetMouseButtonDown(0))
         {
