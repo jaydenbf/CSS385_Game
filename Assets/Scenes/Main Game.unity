@@ -411,6 +411,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom
       objectReference: {fileID: 0}
+    - target: {fileID: 5194311201728583067, guid: 7d1326ac56c187242a7cb685c72f5d51,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ef942c9397e873c4ea73fc2cf8b33c27, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d1326ac56c187242a7cb685c72f5d51, type: 3}
 --- !u!1 &93419015
@@ -4209,6 +4214,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1419344678612811040, guid: eb0713e0ebc7e3840a3fd22e40273183,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8572fe517eea0cc498ecdbfbf261a5ce, type: 2}
     - target: {fileID: 1419344678612811043, guid: eb0713e0ebc7e3840a3fd22e40273183,
         type: 3}
       propertyPath: m_Name
@@ -9693,6 +9703,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
+    - target: {fileID: 6989850453389949431, guid: ad057d7f226cde04f9b6337c87771e58,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 77fd31d95708c0f4a80c87f53f342076, type: 2}
     - target: {fileID: 6989850453389949439, guid: ad057d7f226cde04f9b6337c87771e58,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9822,6 +9837,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5115316449922780841, guid: ae34fbcb7126e2f4d9d6f3a3f9d503d3,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d3e49053a3daf61408f194aee2cf9b86, type: 2}
     - target: {fileID: 5115316449922780846, guid: ae34fbcb7126e2f4d9d6f3a3f9d503d3,
         type: 3}
       propertyPath: m_Name
