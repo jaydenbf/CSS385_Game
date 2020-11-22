@@ -51,12 +51,12 @@ public class GameManager : MonoBehaviour
         defenses[3] = (GameObject)Resources.Load("Prefabs/DefenseObjects/Defense4");
         background = (Tile)Resources.Load("Tilesets/Tiles/Ground Tiles/TileSet_V2_47");
         canPlace = (Tile)Resources.Load("Tilesets/Tiles/Ground Tiles/canPlace");
-        cannotPlace = (Tile)Resources.Load("Tilesets/Tiles/Ground Tiles/cannotPlace");
+        // cannotPlace = (Tile)Resources.Load("Tilesets/Tiles/Ground Tiles/cannotPlace");
         curTile = new Vector3Int(int.MaxValue, int.MaxValue, int.MaxValue);
 
         Debug.Assert(groundTiles != null);
         Debug.Assert(canPlace != null);
-        Debug.Assert(cannotPlace != null);
+        // Debug.Assert(cannotPlace != null);
         Debug.Assert(background != null);
     }
 
@@ -116,8 +116,11 @@ public class GameManager : MonoBehaviour
             return;
         }
         groundTiles.SetTile(curTile, background);
-        if (reservedTiles.Contains(tilePos)) // regular reserved tile
-            groundTiles.SetTile(tilePos, cannotPlace);
+        if (reservedTiles.Contains(tilePos))
+        {
+            // regular reserved tile
+            // groundTiles.SetTile(tilePos, cannotPlace);
+        }
         else // free real estate
             groundTiles.SetTile(tilePos, canPlace);
             curTile = tilePos;

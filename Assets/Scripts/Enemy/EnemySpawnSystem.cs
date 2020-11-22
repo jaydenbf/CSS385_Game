@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.Tilemaps;
 
 
 public class EnemySpawnSystem : MonoBehaviour
 {
     public float gameTimer = 0f;
-
+    public Tilemap groundTiles;
     #region Enemy Spawn Amount
     private int[] chickenSpawn;
     private int[] cowSpawn;
@@ -16,10 +17,10 @@ public class EnemySpawnSystem : MonoBehaviour
     #endregion
 
     #region Enemy Prefabs
-    private GameObject eChicken;
-    private GameObject eCow;
-    private GameObject ePig;
-    private GameObject eLlama;
+    public GameObject eChicken;
+    public GameObject eCow;
+    public GameObject ePig;
+    public GameObject eLlama;
 
     private GameObject endDestination;
 
@@ -74,11 +75,6 @@ public class EnemySpawnSystem : MonoBehaviour
         }
 
         // Load enemy Object
-        eChicken = Resources.Load<GameObject>("Assets/Resources/Prefabs/EnemyObjects/TempEnemyChicken") as GameObject;
-        eCow = Resources.Load<GameObject>("Resources/Prefabs/EnemyObjects/TempEnemyCow") as GameObject;
-        ePig = Resources.Load<GameObject>("Resources/Prefabs/EnemyObjects/TempEnemyPig") as GameObject;
-        eLlama = Resources.Load<GameObject>("Resources/Prefabs/EnemyObjects/TempEnemyLlama") as GameObject;
-
     }
 
     // Update is called once per frame
@@ -128,6 +124,7 @@ public class EnemySpawnSystem : MonoBehaviour
             {
                 SpawnChicken();
                 chickenTimePast = 0f;
+                chickenAmount--;
             }
 
             // Spawn a cow enemy
@@ -135,6 +132,7 @@ public class EnemySpawnSystem : MonoBehaviour
             {
                 SpawnCow();
                 cowTimePast = 0f;
+                cowAmount--;
             }
 
             // Spawn a pig enemy
@@ -142,6 +140,7 @@ public class EnemySpawnSystem : MonoBehaviour
             {
                 SpawnPig();
                 pigTimePast = 0f;
+                pigAmount--;
             }
 
             // Spawn a llama enemy
@@ -149,6 +148,7 @@ public class EnemySpawnSystem : MonoBehaviour
             {
                 SpawnLlama();
                 llamaTimePast = 0f;
+                llamaAmount--;
             }
         }
     }
@@ -177,6 +177,8 @@ public class EnemySpawnSystem : MonoBehaviour
 
         // Starting pos
         e.transform.position = generateValue(0f, 0f, 1f, 1f);
+        //e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        e.transform.rotation = Quaternion.identity;
 
         // Set up coords and set target destination
         e.transform.up = Vector3.LerpUnclamped(transform.up, endDestination.transform.position, 1);
@@ -193,6 +195,8 @@ public class EnemySpawnSystem : MonoBehaviour
 
         // Starting pos
         e.transform.position = generateValue(0f, 0f, 1f, 1f);
+        //e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        e.transform.rotation = Quaternion.identity;
 
         // Set up coords and set target destination
         e.transform.up = Vector3.LerpUnclamped(transform.up, endDestination.transform.position, 1);
@@ -209,6 +213,8 @@ public class EnemySpawnSystem : MonoBehaviour
 
         // Starting pos
         e.transform.position = generateValue(0f, 0f, 1f, 1f);
+        // e.transform.rotation = Quaternion.identity(0f, 0f, 0f);
+        e.transform.rotation = Quaternion.identity;
 
         // Set up coords and set target destination
         e.transform.up = Vector3.LerpUnclamped(transform.up, endDestination.transform.position, 1);
@@ -225,6 +231,8 @@ public class EnemySpawnSystem : MonoBehaviour
 
         // Starting pos
         e.transform.position = generateValue(0f, 0f, 1f, 1f);
+        // e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        e.transform.rotation = Quaternion.identity;
 
         // Set up coords and set target destination
         e.transform.up = Vector3.LerpUnclamped(transform.up, endDestination.transform.position, 1);
@@ -250,9 +258,14 @@ public class EnemySpawnSystem : MonoBehaviour
 
     private Vector3 generateValue(float minX, float maxX, float minY, float maxY)
     {
+        // Generate -7f to 5f
+        // groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(-7f, 5f), 0));
+        
         float newX = UnityEngine.Random.Range(minX, maxX);
         float newY = UnityEngine.Random.Range(minY, maxY);
-        Vector3 pos = new Vector3(newX, newY, -0.5f);   
+        // Generate -7f to 5f
+        Vector3 pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(-7, 5), 0));
+        pos.z += -0.5f;
         return pos;
     }
     #endregion
