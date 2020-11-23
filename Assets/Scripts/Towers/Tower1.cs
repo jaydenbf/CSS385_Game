@@ -50,6 +50,8 @@ public class Tower1 : MonoBehaviour
         }
 
         fireCooldown -= Time.deltaTime;
+
+        LookAt(target.transform.position);
     }
 
     // when tower is selected
@@ -87,6 +89,16 @@ public class Tower1 : MonoBehaviour
         {
             target = null;
         }
+    }
+
+    private void LookAt(Vector3 targetPos)
+    {
+        targetPos = target.position;
+        Vector3 thisPos = transform.position;
+        targetPos.x = targetPos.x - thisPos.x;
+        targetPos.y = targetPos.y - thisPos.y;
+        float angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
     }
 
     void Shoot()
