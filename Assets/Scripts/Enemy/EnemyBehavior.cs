@@ -56,6 +56,7 @@ public class EnemyBehavior : MonoBehaviour
 
             
             EnemyList.Remove(this);
+            gameObject.GetComponent<AIPath>().canMove = false;
 
             // Change AIDestinationSetter to start point
             //ChangeTarget();
