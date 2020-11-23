@@ -143,4 +143,37 @@ public class EnemyBehavior : MonoBehaviour
 
         return false;
     }
+
+    public static EnemyBehavior GetClosestEnemy(Vector3 position, float range)
+    {
+        EnemyBehavior closest = null;
+        float closestDistance = 100;
+
+        for (int i = 0; i < EnemyList.Count; i++)
+        {
+            EnemyBehavior current = EnemyList[i];
+            float currentDistance = Vector3.Distance(position, current.GetPosition());
+
+            if (currentDistance <= range)
+            {
+                if (closest = null)
+                {
+                    closest = current;
+                    closestDistance = currentDistance;
+                }
+                else if (currentDistance < closestDistance)
+                {
+                    closest = current;
+                    closestDistance = currentDistance;
+                }
+            }
+        }
+
+        return closest;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.localPosition;
+    }
 }
