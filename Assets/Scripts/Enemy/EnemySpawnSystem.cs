@@ -27,10 +27,16 @@ public class EnemySpawnSystem : MonoBehaviour
     #endregion
 
     #region Enemy Spawn Times
-    public float flyingEyeSpawnTime = .5f;
-    public float goblinSpawnTime = .6f;
-    public float mushroomSpawnTime = .7f;
-    public float skeletonSpawnTime = .8f;
+    public float flyingEyeSpawnTime = 5f;
+    public float goblinSpawnTime = 6f;
+    public float mushroomSpawnTime = 7f;
+    public float skeletonSpawnTime = 7f;
+
+    public float flyingEyeMinSpawnTime = 2f;
+    public float goblinMinSpawnTime = 3f;
+    public float mushroomMinSpawmTime = 4f;
+    public float skeletonMinSpawnTime = 4f;
+
 
     private float flyingEyeTimePast = 0f;
     private float goblinTimePast = 0f;
@@ -123,7 +129,7 @@ public class EnemySpawnSystem : MonoBehaviour
                 skeletonTimePast = 0f;
                 GameManager.round++;
 
-                AdjustSpawnTimes(.5f);
+                AdjustSpawnTimes(1f);
                 return;
             }
 
@@ -170,22 +176,22 @@ public class EnemySpawnSystem : MonoBehaviour
 
     private void AdjustSpawnTimes(float time)
     {
-        if(flyingEyeSpawnTime >= 3f)
+        if(flyingEyeSpawnTime >= flyingEyeMinSpawnTime)
         {
             flyingEyeSpawnTime -= time;
         }
 
-        if(goblinSpawnTime >= 3.5f)
+        if(goblinSpawnTime >= goblinMinSpawnTime)
         {
             goblinSpawnTime -= time;
         }
 
-        if(mushroomSpawnTime >= 4f)
+        if(mushroomSpawnTime >= mushroomMinSpawmTime)
         {
             mushroomSpawnTime -= time;
         }
 
-        if(skeletonSpawnTime >= 4.5f)
+        if(skeletonSpawnTime >= skeletonMinSpawnTime)
         {
             skeletonSpawnTime -= time;
         }
