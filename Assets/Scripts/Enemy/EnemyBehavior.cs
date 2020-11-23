@@ -25,18 +25,18 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
+        IsAlive();
         if (!alive)
             return;
         //animator.SetInteger("Health", health);
         this.transform.rotation = Quaternion.identity;
-        IsAlive();
-
+       
         if(InRange(1f) || !alive)
         {
             GameManager.lives -= numberOfLives;
             EnemyList.Remove(this);
 
-            DestroyEnemy();
+            DestroyEnemyFast();
         }
 
         
@@ -49,13 +49,18 @@ public class EnemyBehavior : MonoBehaviour
         // Enemy is deafeated
         if (health <= 0 || !alive)
         {
+            if (alive)
+                GameManager.cash += reward;
             alive = false;
             // Change Opacity
 
+            
+            EnemyList.Remove(this);
+
             // Change AIDestinationSetter to start point
             //ChangeTarget();
-            GameManager.lives -= numberOfLives;
-            EnemyList.Remove(this);
+            //GameManager.lives -= numberOfLives;
+
             DestroyEnemy();
         }
     }
@@ -88,10 +93,19 @@ public class EnemyBehavior : MonoBehaviour
 
         // Destroy(transform.parent.gameObject);
         
-        GameManager.cash += reward;
         EnemyList.Remove(this);
         animator.SetTrigger("Death");
         Destroy(this.gameObject, 0.75f);
+    }
+
+    private void DestroyEnemyFast()
+    {
+        UnityEngine.Debug.Log("Destroying Enemy");
+
+        // Destroy(transform.parent.gameObject);
+
+        EnemyList.Remove(this);
+        Destroy(this.gameObject);
     }
 
     //private void ChangeTarget()
