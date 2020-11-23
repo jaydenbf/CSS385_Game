@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
     public Text cashUI;
     public Text roundUI;
 
+    public TowerSelect towerSelectedUI;
+    private Tower1 selectedTower = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,15 +109,17 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(tilePos.x + " " + tilePos.y);
+            // Debug.Log(tilePos.x + " " + tilePos.y);
             if (reservedTiles.Contains(tilePos))
             {
-                Debug.Log("This tile is reserved.");
+                // Debug.Log("This tile is reserved.");
+                towerSelectedUI.Hide();
                 purchaseState = PurchaseState.None;
             }
             else if (purchaseState != PurchaseState.None)
             {
                 PlaceDefense(tilePos);
+                towerSelectedUI.Hide();
             }
         }
 
@@ -193,5 +198,12 @@ public class GameManager : MonoBehaviour
         livesUI.text = "Lives:\t\t" + lives;
         cashUI.text = "Cash:\t\t" + cash;
         roundUI.text = "Round:\t" + round;
+    }
+
+
+    public void SelectTower(Tower1 tower_in)
+    {
+        selectedTower = tower_in;
+        towerSelectedUI.SetTarget(selectedTower);
     }
 }

@@ -7,6 +7,7 @@ public class Tower1 : MonoBehaviour
     public Transform target;
 
     [Header("Attributes")]
+    public string towerName = "Tower";
     public float range = 15f;
     public float attackSpeed = 1f;
     public int damage = 50;
@@ -21,6 +22,8 @@ public class Tower1 : MonoBehaviour
 
     public int cost = 10;
 
+    private GameManager gmanager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,8 @@ public class Tower1 : MonoBehaviour
 
         // set the firepoint to the center of the tower
         firePoint = transform;
+
+        gmanager = GameObject.FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -92,5 +97,18 @@ public class Tower1 : MonoBehaviour
         {
             bullet.setTarget(target);
         }
+    }
+
+    private void OnMouseDown()
+    {
+        gmanager.SelectTower(this);
+    }
+
+    public string getTowerInfo()
+    {
+        return (towerName + "\n" +
+            "Damage: " + damage + "\n" +
+            "Range: " + range + "\n" +
+            "Attack Speed: " + attackSpeed);
     }
 }

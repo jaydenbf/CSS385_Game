@@ -53,6 +53,11 @@ public class Projectile : MonoBehaviour
         target = target_in;
     }
 
+    public void setDamage(int damage_in)
+    {
+        damage = damage_in;
+    }
+
     void HitTarget()
     {
         if (AoERadius > 0)
