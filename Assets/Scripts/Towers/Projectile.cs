@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
     public float bounceRange = 4f;
     public string enemyTag = "Enemy";
 
-    private int damage = 50;
+    public int damage = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +53,7 @@ public class Projectile : MonoBehaviour
         target = target_in;
     }
 
-    public void setDamage(int damage_in)
+    public void SetDamage(int damage_in)
     {
         damage = damage_in;
     }
