@@ -11,13 +11,14 @@ public class TowerSelect : MonoBehaviour
     public Text towerDetails;
     public Button sellButton;
     public Text sellButtonText;
-    private Tower1 tower;
+    public Tower1 tower;
     private GameManager gmanager;
 
     void Start()
     {
         sellButton.onClick.AddListener(ClickToSell);
         gmanager = GameObject.FindObjectOfType<GameManager>();
+        ui.SetActive(false);
     }
 
 
@@ -42,7 +43,7 @@ public class TowerSelect : MonoBehaviour
         ui.SetActive(false);
     }
 
-    void ClickToSell()
+    public void ClickToSell()
     {
         // refund cash
         gmanager.addCash(tower.cost);

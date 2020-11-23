@@ -1,8 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
     public EnemySpawnSystem es;
+    public GameManager gmanager;
+    public Text sellText;
+
+    private void Start()
+    {
+        gmanager = GameObject.FindObjectOfType<GameManager>();
+    }
+
+    private void Update()
+    {
+        if (gmanager.towerSelectedUI != null && gmanager.towerSelectedUI.ui.activeSelf)
+            sellText.text = "Sell ($" + gmanager.towerSelectedUI.tower.cost.ToString() + ")";
+        else
+            sellText.text = "Sell";
+    }
 
     public void PurchaseDefense1()
     {
@@ -49,5 +65,11 @@ public class Shop : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void Sell()
+    {
+        if (gmanager.towerSelectedUI != null)
+            gmanager.towerSelectedUI.ClickToSell();
     }
 }
