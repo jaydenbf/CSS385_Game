@@ -100,12 +100,12 @@ MonoBehaviour:
   target: {fileID: 0}
   range: 5
   attackSpeed: 0.5
-  damage: 50
+  damage: 40
   enemyTag: Enemy
   Projectile: {fileID: 1772581913391082171, guid: ee2f5689be8728041bc4b953b77391e0,
     type: 3}
   firePoint: {fileID: 0}
-  cost: 50
+  cost: 40
 --- !u!50 &-2801537240865093915
 Rigidbody2D:
   serializedVersion: 4
