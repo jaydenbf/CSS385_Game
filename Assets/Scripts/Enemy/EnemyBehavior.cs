@@ -48,7 +48,7 @@ public class EnemyBehavior : MonoBehaviour
             // Change Opacity
 
             // Change AIDestinationSetter to start point
-            ChangeTarget();
+            //ChangeTarget();
         }
     }
 
@@ -82,14 +82,15 @@ public class EnemyBehavior : MonoBehaviour
         
         GameManager.cash += reward;
         EnemyList.Remove(this);
-        Destroy(this.gameObject);
+        animator.SetTrigger("Death");
+        Destroy(this.gameObject, 0.75f);
     }
 
-    private void ChangeTarget()
-    {
-        GameObject startPoint = GameObject.Find("Destroypoint");
-        targetpos.target = startPoint.transform;
-    }
+    //private void ChangeTarget()
+    //{
+    //    GameObject startPoint = GameObject.Find("Destroypoint");
+    //    targetpos.target = startPoint.transform;
+    //}
 
     private bool InRange(float range)
     {
