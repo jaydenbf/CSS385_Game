@@ -122,6 +122,8 @@ public class EnemySpawnSystem : MonoBehaviour
                 mushroomTimePast = 0f;
                 skeletonTimePast = 0f;
                 GameManager.round++;
+
+                AdjustSpawnTimes(.5f);
                 return;
             }
 
@@ -166,6 +168,28 @@ public class EnemySpawnSystem : MonoBehaviour
             mushroomAmount <= 0 && skeletonAmount <= 0);
     }
 
+    private void AdjustSpawnTimes(float time)
+    {
+        if(flyingEyeSpawnTime >= 3f)
+        {
+            flyingEyeSpawnTime -= time;
+        }
+
+        if(goblinSpawnTime >= 3.5f)
+        {
+            goblinSpawnTime -= time;
+        }
+
+        if(mushroomSpawnTime >= 4f)
+        {
+            mushroomSpawnTime -= time;
+        }
+
+        if(skeletonSpawnTime >= 4.5f)
+        {
+            skeletonSpawnTime -= time;
+        }
+    }
     // Add function which turns start wave to be true. 
     // Most likely has to be a button input
     // Add a function that pauses and unpauses the game
