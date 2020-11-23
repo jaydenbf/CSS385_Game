@@ -98,25 +98,25 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
-        //Vector3Int tilePos = groundTiles.WorldToCell(worldPoint);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
+        Vector3Int tilePos = groundTiles.WorldToCell(worldPoint);
 
-        //// UpdateCursorTile(tilePos);
+        // UpdateCursorTile(tilePos);
 
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Debug.Log(tilePos.x + " " + tilePos.y);
-        //    if (reservedTiles.Contains(tilePos))
-        //    {
-        //        Debug.Log("This tile is reserved.");
-        //        purchaseState = PurchaseState.None;
-        //    }
-        //    else if (purchaseState != PurchaseState.None)
-        //    {
-        //        PlaceDefense(tilePos);
-        //    }
-        //}
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log(tilePos.x + " " + tilePos.y);
+            if (reservedTiles.Contains(tilePos))
+            {
+                Debug.Log("This tile is reserved.");
+                purchaseState = PurchaseState.None;
+            }
+            else if (purchaseState != PurchaseState.None)
+            {
+                PlaceDefense(tilePos);
+            }
+        }
 
         updateUI();
     }
