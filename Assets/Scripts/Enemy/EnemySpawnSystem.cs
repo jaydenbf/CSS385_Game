@@ -57,6 +57,8 @@ public class EnemySpawnSystem : MonoBehaviour
     private int goblinAmount;
     private int mushroomAmount;
     private int skeletonAmount;
+
+    public static int[] waveReward;
     #endregion
 
     // Start is called before the first frame update
@@ -85,7 +87,12 @@ public class EnemySpawnSystem : MonoBehaviour
             skeletonSpawn[i] = 7 + Random.Range(0, 2);
         }
 
-        // Load enemy Object
+        // Wave Bonus Rewards
+        waveReward = new int[7];
+        for (int i = 0; i < 7; i++)
+        {
+            waveReward[i] = 20;
+        }
     }
 
     // Update is called once per frame
@@ -158,13 +165,14 @@ public class EnemySpawnSystem : MonoBehaviour
             
             if (WaveEnd() && EnemyBehavior.EnemyList.Count == 0)
             {
+                GameManager.cash += waveReward[waveCounter];
                 waveCounter++;
                 spawnWave = false;
                 flyingEyeTimePast = 0f;
                 goblinTimePast = 0f;
                 mushroomTimePast = 0f;
                 skeletonTimePast = 0f;
-                GameManager.cash += GameManager.waveReward[GameManager.round++];
+                GameManager.round += 1;
 
                 AdjustSpawnTimes(1f);
                 return;
