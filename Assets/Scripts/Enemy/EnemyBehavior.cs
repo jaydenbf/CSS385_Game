@@ -25,6 +25,8 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
+        if (!alive)
+            return;
         //animator.SetInteger("Health", health);
         this.transform.rotation = Quaternion.identity;
         IsAlive();
@@ -33,8 +35,11 @@ public class EnemyBehavior : MonoBehaviour
         {
             GameManager.lives -= numberOfLives;
             EnemyList.Remove(this);
+
             DestroyEnemy();
         }
+
+        
 
         Debug.Log("Number of Enemies: " + EnemyList.Count);
     }
@@ -49,6 +54,9 @@ public class EnemyBehavior : MonoBehaviour
 
             // Change AIDestinationSetter to start point
             //ChangeTarget();
+            GameManager.lives -= numberOfLives;
+            EnemyList.Remove(this);
+            DestroyEnemy();
         }
     }
 
