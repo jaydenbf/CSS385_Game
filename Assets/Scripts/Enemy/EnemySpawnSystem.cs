@@ -94,7 +94,7 @@ public class EnemySpawnSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
             GameManager.round++;
 
-        if (GameManager.round >= 7)
+        if (GameManager.round >= 7 && EnemyBehavior.EnemyList.Count == 0)
             SceneManager.LoadScene("Win Screen");
         if (GameManager.lives <= 0)
             SceneManager.LoadScene("Lose Screen");
@@ -132,7 +132,7 @@ public class EnemySpawnSystem : MonoBehaviour
     {
         if (spawnWave)
         {
-            if (WaveEnd())
+            if (WaveEnd() && EnemyBehavior.EnemyList.Count == 0)
             {
                 waveCounter++;
                 spawnWave = false;
@@ -143,6 +143,10 @@ public class EnemySpawnSystem : MonoBehaviour
                 GameManager.cash += GameManager.waveReward[GameManager.round++];
 
                 AdjustSpawnTimes(1f);
+                return;
+            }
+            else if (WaveEnd())
+            {
                 return;
             }
 
