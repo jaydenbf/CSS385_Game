@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public static int cash = 100;
     public static int round = 1;
 
+    public static int[] waveReward;
+
     public Text livesUI;
     public Text cashUI;
     public Text roundUI;
@@ -68,6 +70,12 @@ public class GameManager : MonoBehaviour
         Debug.Assert(canPlace != null);
         // Debug.Assert(cannotPlace != null);
         Debug.Assert(background != null);
+
+        waveReward = new int[7];
+        for (int i = 0; i < 7; i++)
+        {
+            waveReward[i] = 50 + i * 50;
+        }
 
         Vector3 dir = transform.transform.localPosition - transform.position;
     }

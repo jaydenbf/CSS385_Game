@@ -121,7 +121,7 @@ public class EnemySpawnSystem : MonoBehaviour
                 goblinTimePast = 0f;
                 mushroomTimePast = 0f;
                 skeletonTimePast = 0f;
-                GameManager.round++;
+                GameManager.cash += GameManager.waveReward[GameManager.round++];
 
                 AdjustSpawnTimes(.5f);
                 return;
