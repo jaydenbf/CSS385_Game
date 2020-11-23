@@ -15,7 +15,7 @@ public class EnemyBehavior : MonoBehaviour
     public Animator animator;
     public static List<EnemyBehavior> EnemyList = new List<EnemyBehavior>();
 
-    void Awake()
+    void Start()
     {
         targetpos = GetComponent<DestinationSetter>();
         healthBar.SetMaxHealth(health);
