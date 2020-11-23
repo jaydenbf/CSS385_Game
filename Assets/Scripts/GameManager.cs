@@ -74,8 +74,8 @@ public class GameManager : MonoBehaviour
         // Debug.Assert(cannotPlace != null);
         Debug.Assert(background != null);
 
-        waveReward = new int[6];
-        for (int i = 0; i < 6; i++)
+        waveReward = new int[7];
+        for (int i = 0; i < 7; i++)
         {
             waveReward[i] = 20;
         }
@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
     {
         livesUI.text = "Lives:\t\t" + lives;
         cashUI.text = "Cash:\t\t" + cash;
-        roundUI.text = "Round:\t" + (round + 1) + " / 6";
+        roundUI.text = "Round:\t" + (round + 1) + " / 7";
     }
 
     public void SelectTower(Tower1 tower_in)

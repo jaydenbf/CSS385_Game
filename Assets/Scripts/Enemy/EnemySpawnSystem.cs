@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 
 public class EnemySpawnSystem : MonoBehaviour
@@ -92,6 +93,12 @@ public class EnemySpawnSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
             GameManager.round++;
+
+        if (GameManager.round >= 7)
+            SceneManager.LoadScene("Win Screen");
+        if (GameManager.lives <= 0)
+            SceneManager.LoadScene("Lose Screen");
+
         if (startWave)
         {
             spawnWave = true;
