@@ -9,6 +9,7 @@ public class EnemySpawnSystem : MonoBehaviour
 {
     public float gameTimer = 0f;
     public Tilemap groundTiles;
+
     #region Enemy Spawn Amount
     private int[] flyingEyeSpawn;
     private int[] goblinSpawn;
@@ -46,7 +47,7 @@ public class EnemySpawnSystem : MonoBehaviour
 
     #region Wave Spawners
     public int waveCounter = 0;
-    public int maxWaveCounter = 7;
+    public int maxWaveCounter = 6;
     public bool startWave = false;
     public bool spawnWave = false;
     public bool pauseWave = false;
@@ -65,25 +66,22 @@ public class EnemySpawnSystem : MonoBehaviour
         mushroomSpawn = new int[maxWaveCounter];
         skeletonSpawn = new int[maxWaveCounter];
 
-        // Inital Wave 1 will have 3 of each enemy
-        flyingEyeSpawn[0] = 1;
-        goblinSpawn[0] = 1;
-        mushroomSpawn[0] = 1;
-        skeletonSpawn[0] = 1;
-
-        flyingEyeSpawn[1] = 3;
-        goblinSpawn[1] = 3;
-        mushroomSpawn[1] = 3;
-        skeletonSpawn[1] = 3;
-
-
-        // Decide spawn amount
-        for (int i = 2; i < maxWaveCounter; i++)
+        // Inital Wave 1 - 4
+        for(int i = 0; i < 4; i++)
         {
-            flyingEyeSpawn[i] = flyingEyeSpawn[i - 1] + Random.Range(5,7);
-            goblinSpawn[i] = goblinSpawn[i - 1] + Random.Range(5, 7);
-            mushroomSpawn[i] = mushroomSpawn[i - 1] + Random.Range(5, 7);
-            skeletonSpawn[i] = skeletonSpawn[i - 1] + Random.Range(5, 7);
+            flyingEyeSpawn[i] = 1 + (i * 2);
+            goblinSpawn[i] = 1 + (i * 2);
+            mushroomSpawn[i] = 1 + (i * 2);
+            skeletonSpawn[i] = 1 + (i * 2);
+        }
+
+        // Wave 5-6
+        for (int i = 4; i < maxWaveCounter; i++)
+        {
+            flyingEyeSpawn[i] = 7 + Random.Range(0,2);
+            goblinSpawn[i] = 7 + Random.Range(0, 2);
+            mushroomSpawn[i] = 7 + Random.Range(0, 2);
+            skeletonSpawn[i] = 7 + Random.Range(0, 2);
         }
 
         // Load enemy Object

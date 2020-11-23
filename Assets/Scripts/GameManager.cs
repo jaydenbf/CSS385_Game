@@ -28,9 +28,9 @@ public class GameManager : MonoBehaviour
     private static Tile cannotPlace;
     private static Tile background;
 
-    public static int lives = 50;
+    public static int lives = 100;
     public static int cash = 100;
-    public static int round = 1;
+    public static int round = 0;
 
     public static int[] waveReward;
 
@@ -71,10 +71,10 @@ public class GameManager : MonoBehaviour
         // Debug.Assert(cannotPlace != null);
         Debug.Assert(background != null);
 
-        waveReward = new int[7];
-        for (int i = 0; i < 7; i++)
+        waveReward = new int[6];
+        for (int i = 0; i < 6; i++)
         {
-            waveReward[i] = 10;
+            waveReward[i] = 20;
         }
 
         Vector3 dir = transform.transform.localPosition - transform.position;
@@ -106,6 +106,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        updateUI();
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
         Vector3Int tilePos = groundTiles.WorldToCell(worldPoint);
@@ -200,6 +202,6 @@ public class GameManager : MonoBehaviour
     {
         livesUI.text = "Lives:\t\t" + lives;
         cashUI.text = "Cash:\t\t" + cash;
-        roundUI.text = "Round:\t" + round + " / 7";
+        roundUI.text = "Round:\t" + (round + 1) + " / 6";
     }
 }
