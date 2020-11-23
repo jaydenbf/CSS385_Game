@@ -96,7 +96,7 @@ public class Tower1 : MonoBehaviour
         if (bullet != null)
         {
             bullet.setTarget(target);
-            bullet.setDamage(damage);
+            bullet.SetDamage(damage);
         }
     }
 
