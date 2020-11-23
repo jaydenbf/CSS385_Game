@@ -4,7 +4,7 @@ using UnityEngine;
 using Pathfinding;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
-
+using System.Threading;
 
 public class EnemySpawnSystem : MonoBehaviour
 {
@@ -95,9 +95,32 @@ public class EnemySpawnSystem : MonoBehaviour
             GameManager.round++;
 
         if (GameManager.round >= 7 && EnemyBehavior.EnemyList.Count == 0)
+        {
+            Thread.Sleep(750);
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
+
+            GameManager.lives = 100;
+            GameManager.cash = 100;
+            GameManager.round = 0;
+            EnemyBehavior.EnemyList.Clear();
+            spawnWave = false;
             SceneManager.LoadScene("Win Screen");
+            return;
+        }
+
         if (GameManager.lives <= 0)
+        {
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
+            GameManager.lives = 100;
+            GameManager.cash = 100;
+            GameManager.round = 0;
+            EnemyBehavior.EnemyList.Clear();
+            spawnWave = false;
             SceneManager.LoadScene("Lose Screen");
+            return;
+        }
 
         if (startWave)
         {
@@ -132,6 +155,7 @@ public class EnemySpawnSystem : MonoBehaviour
     {
         if (spawnWave)
         {
+            
             if (WaveEnd() && EnemyBehavior.EnemyList.Count == 0)
             {
                 waveCounter++;
