@@ -190,6 +190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6257888593463797530}
+  - component: {fileID: 7918236336130037470}
   m_Layer: 13
   m_Name: TowerUINode
   m_TagString: Untagged
@@ -213,6 +214,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7918236336130037470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257888593463797531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdffca49628e741499238bcc69347c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeIndicator: {fileID: 4689521264193210040}
+  ui: {fileID: 6257888593372944084}
+  towerDetails: {fileID: 6257888593880384687}
+  sellButton: {fileID: 6257888593604046954}
+  sellButtonText: {fileID: 6257888594516552513}
 --- !u!1 &6257888593604046952
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +244,7 @@ GameObject:
   - component: {fileID: 6257888593604046965}
   - component: {fileID: 6257888593604046954}
   m_Layer: 13
-  m_Name: UpgradeButton
+  m_Name: SellButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -424,7 +442,7 @@ GameObject:
   - component: {fileID: 6257888594516552512}
   - component: {fileID: 6257888594516552513}
   m_Layer: 13
-  m_Name: UpgradeButtonText
+  m_Name: SellButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

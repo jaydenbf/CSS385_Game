@@ -210,10 +210,14 @@ public class GameManager : MonoBehaviour
         roundUI.text = "Round:\t" + (round + 1) + " / 6";
     }
 
-
     public void SelectTower(Tower1 tower_in)
     {
         selectedTower = tower_in;
-        towerSelectedUI.SetTarget(selectedTower);
+        towerSelectedUI.SetTarget(tower_in);
+    }
+
+    public void addCash(int cash_in)
+    {
+        cash += cash_in;
     }
 }

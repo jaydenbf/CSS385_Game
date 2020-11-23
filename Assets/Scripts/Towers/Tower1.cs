@@ -112,4 +112,14 @@ public class Tower1 : MonoBehaviour
             "Range: " + range + "\n" +
             "Attack Speed: " + attackSpeed);
     }
+
+    public string getSellInfo()
+    {
+        return ("Sell $" + cost);
+    }
+
+    public void Destroy()
+    {
+        Destroy(this.gameObject);
+    }
 }
