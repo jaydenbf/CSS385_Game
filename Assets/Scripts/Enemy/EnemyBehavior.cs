@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Pathfinding;
 using UnityEngine.Tilemaps;
 
@@ -15,7 +16,7 @@ public class EnemyBehavior : MonoBehaviour
     public Animator animator;
     public static List<EnemyBehavior> EnemyList = new List<EnemyBehavior>();
 
-    void Awake()
+    void Start()
     {
         targetpos = GetComponent<DestinationSetter>();
         healthBar.SetMaxHealth(health);
@@ -39,7 +40,10 @@ public class EnemyBehavior : MonoBehaviour
             DestroyEnemyFast();
         }
 
-        
+        if (GameManager.round >= 7)
+            SceneManager.LoadScene("Win Screen");
+        if (GameManager.lives <= 0)
+            SceneManager.LoadScene("Lose Screen");
 
         Debug.Log("Number of Enemies: " + EnemyList.Count);
     }
@@ -56,6 +60,7 @@ public class EnemyBehavior : MonoBehaviour
 
             
             EnemyList.Remove(this);
+            gameObject.GetComponent<AIPath>().canMove = false;
 
             // Change AIDestinationSetter to start point
             //ChangeTarget();

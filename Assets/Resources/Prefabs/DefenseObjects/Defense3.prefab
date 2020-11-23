@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 6
+  range: 6.75
   attackSpeed: 0.7
-  damage: 50
+  damage: 40
   enemyTag: Enemy
   Projectile: {fileID: 4263793719979987434, guid: 9391ce4922f79c3489ddd080b43ef064,
     type: 3}

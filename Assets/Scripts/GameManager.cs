@@ -30,7 +30,9 @@ public class GameManager : MonoBehaviour
 
     public static int lives = 100;
     public static int cash = 100;
-    public static int round = 1;
+    public static int round = 0;
+
+    public static int[] waveReward;
 
     public Text livesUI;
     public Text cashUI;
@@ -72,6 +74,12 @@ public class GameManager : MonoBehaviour
         // Debug.Assert(cannotPlace != null);
         Debug.Assert(background != null);
 
+        waveReward = new int[6];
+        for (int i = 0; i < 6; i++)
+        {
+            waveReward[i] = 20;
+        }
+
         Vector3 dir = transform.transform.localPosition - transform.position;
     }
 
@@ -101,6 +109,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        updateUI();
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
         Vector3Int tilePos = groundTiles.WorldToCell(worldPoint);
@@ -197,7 +207,7 @@ public class GameManager : MonoBehaviour
     {
         livesUI.text = "Lives:\t\t" + lives;
         cashUI.text = "Cash:\t\t" + cash;
-        roundUI.text = "Round:\t" + round;
+        roundUI.text = "Round:\t" + (round + 1) + " / 6";
     }
 
 
