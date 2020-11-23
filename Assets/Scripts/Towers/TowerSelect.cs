@@ -47,7 +47,7 @@ public class TowerSelect : MonoBehaviour
     {
         // refund cash
         gmanager.addCash(tower.cost);
-
+        tower.cost = 0;
         tower.Destroy();
 
         Hide();
