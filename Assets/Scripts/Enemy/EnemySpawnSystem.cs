@@ -66,13 +66,19 @@ public class EnemySpawnSystem : MonoBehaviour
         skeletonSpawn = new int[maxWaveCounter];
 
         // Inital Wave 1 will have 3 of each enemy
-        flyingEyeSpawn[0] = 3;
-        goblinSpawn[0] = 3;
-        mushroomSpawn[0] = 3;
-        skeletonSpawn[0] = 3;
+        flyingEyeSpawn[0] = 1;
+        goblinSpawn[0] = 1;
+        mushroomSpawn[0] = 1;
+        skeletonSpawn[0] = 1;
+
+        flyingEyeSpawn[1] = 3;
+        goblinSpawn[1] = 3;
+        mushroomSpawn[1] = 3;
+        skeletonSpawn[1] = 3;
+
 
         // Decide spawn amount
-        for (int i = 1; i < maxWaveCounter; i++)
+        for (int i = 2; i < maxWaveCounter; i++)
         {
             flyingEyeSpawn[i] = flyingEyeSpawn[i - 1] + Random.Range(5,7);
             goblinSpawn[i] = goblinSpawn[i - 1] + Random.Range(5, 7);

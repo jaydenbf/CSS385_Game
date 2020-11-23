@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         waveReward = new int[7];
         for (int i = 0; i < 7; i++)
         {
-            waveReward[i] = 50 + i * 50;
+            waveReward[i] = 10;
         }
 
         Vector3 dir = transform.transform.localPosition - transform.position;
