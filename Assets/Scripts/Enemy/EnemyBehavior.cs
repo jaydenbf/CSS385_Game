@@ -13,12 +13,14 @@ public class EnemyBehavior : MonoBehaviour
     public int reward;
     public int numberOfLives;
     public Animator animator;
+    public static List<EnemyBehavior> EnemyList = new List<EnemyBehavior>();
 
     void Awake()
     {
         targetpos = GetComponent<DestinationSetter>();
         healthBar.SetMaxHealth(health);
         healthBar.gameObject.SetActive(false);
+        EnemyList.Add(this);
     }
 
     void Update()
@@ -30,8 +32,11 @@ public class EnemyBehavior : MonoBehaviour
         if(InRange(1f) || !alive)
         {
             GameManager.lives -= numberOfLives;
+            EnemyList.Remove(this);
             DestroyEnemy();
         }
+
+        Debug.Log("Number of Enemies: " + EnemyList.Count);
     }
 
     private void IsAlive()
@@ -76,6 +81,7 @@ public class EnemyBehavior : MonoBehaviour
         // Destroy(transform.parent.gameObject);
         
         GameManager.cash += reward;
+        EnemyList.Remove(this);
         Destroy(this.gameObject);
     }
 
