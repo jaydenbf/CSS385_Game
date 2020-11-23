@@ -10,32 +10,32 @@ public class EnemySpawnSystem : MonoBehaviour
     public float gameTimer = 0f;
     public Tilemap groundTiles;
     #region Enemy Spawn Amount
-    private int[] chickenSpawn;
-    private int[] cowSpawn;
-    private int[] pigSpawn;
-    private int[] llamaSpawn;
+    private int[] flyingeyeSpawn;
+    private int[] goblinSpawn;
+    private int[] mushroomSpawn;
+    private int[] skeletonSpawn;
     #endregion
 
     #region Enemy Prefabs
-    public GameObject eChicken;
-    public GameObject eCow;
-    public GameObject ePig;
-    public GameObject eLlama;
+    public GameObject eFlyingeye;
+    public GameObject eGoblin;
+    public GameObject eMushroom;
+    public GameObject eSkeleton;
 
     private GameObject endDestination;
 
     #endregion
 
     #region Enemy Spawn Times
-    public float chickenSpawnTime = .5f;
-    public float cowSpawnTime = .6f;
-    public float pigSpawnTime = .7f;
-    public float llamaSpawnTime = .8f;
+    public float flyingeyeSpawnTime = .5f;
+    public float goblinSpawnTime = .6f;
+    public float mushroomSpawnTime = .7f;
+    public float skeletonSpawnTime = .8f;
 
-    private float chickenTimePast = 0f;
-    private float cowTimePast = 0f;
-    private float pigTimePast = 0f;
-    private float llamaTimePast = 0f;
+    private float flyingEyeTimePast = 0f;
+    private float goblinTimePast = 0f;
+    private float mushroomTimePast = 0f;
+    private float skeletonTimePast = 0f;
     #endregion
 
     #region Wave Spawners
@@ -45,33 +45,33 @@ public class EnemySpawnSystem : MonoBehaviour
     public bool spawnWave = false;
     public bool pauseWave = false;
 
-    private int chickenAmount;
-    private int cowAmount;
-    private int pigAmount;
-    private int llamaAmount;
+    private int flyingEyeAmount;
+    private int goblinAmount;
+    private int mushroomAmount;
+    private int skeletonAmount;
     #endregion
 
     // Start is called before the first frame update
     void Awake()
     {
-        chickenSpawn = new int[maxWaveCounter];
-        cowSpawn = new int[maxWaveCounter];
-        pigSpawn = new int[maxWaveCounter];
-        llamaSpawn = new int[maxWaveCounter];
+        flyingeyeSpawn = new int[maxWaveCounter];
+        goblinSpawn = new int[maxWaveCounter];
+        mushroomSpawn = new int[maxWaveCounter];
+        skeletonSpawn = new int[maxWaveCounter];
 
         // Inital Wave 1 will have 3 of each enemy
-        chickenSpawn[0] = 3;
-        cowSpawn[0] = 3;
-        pigSpawn[0] = 3;
-        llamaSpawn[0] = 3;
+        flyingeyeSpawn[0] = 3;
+        goblinSpawn[0] = 3;
+        mushroomSpawn[0] = 3;
+        skeletonSpawn[0] = 3;
 
         // Decide spawn amount
         for (int i = 1; i < maxWaveCounter; i++)
         {
-            chickenSpawn[i] = chickenSpawn[i - 1] + Random.Range(5,7);
-            cowSpawn[i] = cowSpawn[i - 1] + Random.Range(5, 7);
-            pigSpawn[i] = pigSpawn[i - 1] + Random.Range(5, 7);
-            llamaSpawn[i] = llamaSpawn[i - 1] + Random.Range(5, 7);
+            flyingeyeSpawn[i] = flyingeyeSpawn[i - 1] + Random.Range(5,7);
+            goblinSpawn[i] = goblinSpawn[i - 1] + Random.Range(5, 7);
+            mushroomSpawn[i] = mushroomSpawn[i - 1] + Random.Range(5, 7);
+            skeletonSpawn[i] = skeletonSpawn[i - 1] + Random.Range(5, 7);
         }
 
         // Load enemy Object
@@ -86,10 +86,10 @@ public class EnemySpawnSystem : MonoBehaviour
             startWave = false;
 
             // Tells enemy amount
-            chickenAmount = chickenSpawn[waveCounter];
-            cowAmount = cowSpawn[waveCounter];
-            pigAmount = pigSpawn[waveCounter];
-            llamaAmount = llamaSpawn[waveCounter];
+            flyingEyeAmount = flyingeyeSpawn[waveCounter];
+            goblinAmount = goblinSpawn[waveCounter];
+            mushroomAmount = mushroomSpawn[waveCounter];
+            skeletonAmount = skeletonSpawn[waveCounter];
         }
 
         // Does not do anything if the user pauses the wave
@@ -102,10 +102,10 @@ public class EnemySpawnSystem : MonoBehaviour
         gameTimer += time;
 
         // Update Enemy Spawn Time
-        chickenTimePast += time;
-        cowTimePast += time;
-        pigTimePast += time;
-        llamaTimePast += time;
+        flyingEyeTimePast += time;
+        goblinTimePast += time;
+        mushroomTimePast += time;
+        skeletonTimePast += time;
         Spawner();
     }
 
@@ -117,44 +117,44 @@ public class EnemySpawnSystem : MonoBehaviour
             {
                 waveCounter++;
                 spawnWave = false;
-                chickenTimePast = 0f;
-                cowTimePast = 0f;
-                pigTimePast = 0f;
-                llamaTimePast = 0f;
+                flyingEyeTimePast = 0f;
+                goblinTimePast = 0f;
+                mushroomTimePast = 0f;
+                skeletonTimePast = 0f;
                 GameManager.round++;
                 return;
             }
 
-            // Spawn a chicken enemy
-            if (CanChickenSpawn())
+            // Spawn a flyingEye enemy
+            if (CanflyingeyeSpawn())
             {
-                SpawnChicken();
-                chickenTimePast = 0f;
-                chickenAmount--;
+                SpawnflyingEye();
+                flyingEyeTimePast = 0f;
+                flyingEyeAmount--;
             }
 
-            // Spawn a cow enemy
-            if (CanCowSpawn())
+            // Spawn a goblin enemy
+            if (CangoblinSpawn())
             {
-                SpawnCow();
-                cowTimePast = 0f;
-                cowAmount--;
+                Spawngoblin();
+                goblinTimePast = 0f;
+                goblinAmount--;
             }
 
-            // Spawn a pig enemy
-            if (CanPigSpawn())
+            // Spawn a mushroom enemy
+            if (CanmushroomSpawn())
             {
-                SpawnPig();
-                pigTimePast = 0f;
-                pigAmount--;
+                Spawnmushroom();
+                mushroomTimePast = 0f;
+                mushroomAmount--;
             }
 
-            // Spawn a llama enemy
-            if (CanLlamaSpawn())
+            // Spawn a skeleton enemy
+            if (CanskeletonSpawn())
             {
-                SpawnLlama();
-                llamaTimePast = 0f;
-                llamaAmount--;
+                Spawnskeleton();
+                skeletonTimePast = 0f;
+                skeletonAmount--;
             }
         }
     }
@@ -162,8 +162,8 @@ public class EnemySpawnSystem : MonoBehaviour
     #region Wave Control Functions
     private bool WaveEnd()
     {
-        return (chickenAmount <= 0 && cowAmount <= 0 &&
-            pigAmount <= 0 && llamaAmount <= 0);
+        return (flyingEyeAmount <= 0 && goblinAmount <= 0 &&
+            mushroomAmount <= 0 && skeletonAmount <= 0);
     }
 
     // Add function which turns start wave to be true. 
@@ -173,10 +173,10 @@ public class EnemySpawnSystem : MonoBehaviour
     #endregion
 
     #region Spawn Enemies
-    private void SpawnChicken()
+    private void SpawnflyingEye()
     {
         // Instantiate Obj
-        GameObject e = GameObject.Instantiate(eChicken) as GameObject;
+        GameObject e = GameObject.Instantiate(eFlyingeye) as GameObject;
 
         // Find target designation
         PickDestination();
@@ -191,10 +191,10 @@ public class EnemySpawnSystem : MonoBehaviour
         e.GetComponent<DestinationSetter>().target = endDestination.transform;
     }
 
-    private void SpawnCow()
+    private void Spawngoblin()
     {
         // Instantiate Obj
-        GameObject e = GameObject.Instantiate(eCow) as GameObject;
+        GameObject e = GameObject.Instantiate(eGoblin) as GameObject;
 
         // Find target designation
         PickDestination();
@@ -209,10 +209,10 @@ public class EnemySpawnSystem : MonoBehaviour
         e.GetComponent<DestinationSetter>().target = endDestination.transform;
     }
 
-    private void SpawnPig()
+    private void Spawnmushroom()
     {
         // Instantiate Obj
-        GameObject e = GameObject.Instantiate(ePig) as GameObject;
+        GameObject e = GameObject.Instantiate(eMushroom) as GameObject;
 
         // Find target designation
         PickDestination();
@@ -227,10 +227,10 @@ public class EnemySpawnSystem : MonoBehaviour
         e.GetComponent<DestinationSetter>().target = endDestination.transform;
     }
 
-    private void SpawnLlama()
+    private void Spawnskeleton()
     {
         // Instantiate Obj
-        GameObject e = GameObject.Instantiate(eLlama) as GameObject;
+        GameObject e = GameObject.Instantiate(eSkeleton) as GameObject;
 
         // Find target designation
         PickDestination();
@@ -275,24 +275,24 @@ public class EnemySpawnSystem : MonoBehaviour
     #endregion
 
     #region Check if enenmy can spawn
-    private bool CanChickenSpawn()
+    private bool CanflyingeyeSpawn()
     {
-        return chickenTimePast >= chickenSpawnTime; 
+        return flyingEyeTimePast >= flyingeyeSpawnTime; 
     }
 
-    private bool CanCowSpawn()
+    private bool CangoblinSpawn()
     {
-        return cowTimePast >= cowSpawnTime;
+        return goblinTimePast >= goblinSpawnTime;
     }
 
-    private bool CanPigSpawn()
+    private bool CanmushroomSpawn()
     {
-        return pigTimePast >= pigSpawnTime;
+        return mushroomTimePast >= mushroomSpawnTime;
     }
 
-    private bool CanLlamaSpawn()
+    private bool CanskeletonSpawn()
     {
-        return llamaTimePast >= llamaSpawnTime;
+        return skeletonTimePast >= skeletonSpawnTime;
     }
 
     #endregion
