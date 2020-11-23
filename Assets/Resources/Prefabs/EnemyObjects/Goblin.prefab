@@ -185,8 +185,8 @@ MonoBehaviour:
   health: 100
   targetpos: {fileID: 0}
   healthBar: {fileID: 5661279619648076398}
-  reward: 2
-  numberOfLives: 2
+  reward: 5
+  numberOfLives: 1
   animator: {fileID: 5024354077371357889}
 --- !u!61 &5024354077371357919
 BoxCollider2D:

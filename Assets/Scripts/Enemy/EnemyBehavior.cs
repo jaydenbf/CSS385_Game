@@ -14,11 +14,15 @@ public class EnemyBehavior : MonoBehaviour
     public int numberOfLives;
     public Animator animator;
 
+    public static List<EnemyBehavior> EnemyList = new List<EnemyBehavior>();
+
     void Awake()
     {
         targetpos = GetComponent<DestinationSetter>();
         healthBar.SetMaxHealth(health);
         healthBar.gameObject.SetActive(false);
+
+        EnemyList.Add(this);
     }
 
     void Update()
@@ -32,6 +36,8 @@ public class EnemyBehavior : MonoBehaviour
             GameManager.lives -= numberOfLives;
             DestroyEnemy();
         }
+
+        Debug.Log("Number of Enemies: " + EnemyList.Count);
     }
 
     private void IsAlive()
@@ -43,7 +49,7 @@ public class EnemyBehavior : MonoBehaviour
             // Change Opacity
 
             // Change AIDestinationSetter to start point
-            
+            ChangeTarget();
         }
     }
 
@@ -71,20 +77,20 @@ public class EnemyBehavior : MonoBehaviour
 
     private void DestroyEnemy()
     {
-        UnityEngine.Debug.Log("Destroying Enemy");
+        //UnityEngine.Debug.Log("Destroying Enemy");
 
         // Destroy(transform.parent.gameObject);
         
         GameManager.cash += reward;
-        animator.SetTrigger("Death");
-        Destroy(this.gameObject, 0.75f);
+        EnemyList.Remove(this);
+        Destroy(this.gameObject);
     }
 
-    /*private void ChangeTarget()
+    private void ChangeTarget()
     {
         GameObject startPoint = GameObject.Find("Destroypoint");
         targetpos.target = startPoint.transform;
-    }*/
+    }
 
     private bool InRange(float range)
     {

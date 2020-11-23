@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private static Tile cannotPlace;
     private static Tile background;
 
-    public static int lives = 50;
+    public static int lives = 100;
     public static int cash = 100;
     public static int round = 1;
 

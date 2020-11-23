@@ -27,10 +27,10 @@ public class EnemySpawnSystem : MonoBehaviour
     #endregion
 
     #region Enemy Spawn Times
-    public float flyingEyeSpawnTime = 5f;
-    public float goblinSpawnTime = 6f;
-    public float mushroomSpawnTime = 7f;
-    public float skeletonSpawnTime = 8f;
+    public float flyingEyeSpawnTime = .5f;
+    public float goblinSpawnTime = .6f;
+    public float mushroomSpawnTime = .7f;
+    public float skeletonSpawnTime = .8f;
 
     private float flyingEyeTimePast = 0f;
     private float goblinTimePast = 0f;
@@ -90,12 +90,10 @@ public class EnemySpawnSystem : MonoBehaviour
             goblinAmount = goblinSpawn[waveCounter];
             mushroomAmount = mushroomSpawn[waveCounter];
             skeletonAmount = skeletonSpawn[waveCounter];
-
-            InitalSpawn();
         }
 
         // Does not do anything if the user pauses the wave
-        if (pauseWave || !spawnWave)
+        if (pauseWave)
         {
             return;
         }
@@ -124,7 +122,6 @@ public class EnemySpawnSystem : MonoBehaviour
                 mushroomTimePast = 0f;
                 skeletonTimePast = 0f;
                 GameManager.round++;
-                SpawnTimeAdjustment();
                 return;
             }
 
@@ -169,36 +166,6 @@ public class EnemySpawnSystem : MonoBehaviour
             mushroomAmount <= 0 && skeletonAmount <= 0);
     }
 
-    private void InitalSpawn()
-    {
-        SpawnFlyingEye();
-        SpawnGoblin();
-        SpawnMushroom();
-        SpawnSkeleton();
-    }
-
-    private void SpawnTimeAdjustment()
-    {
-        if (flyingEyeSpawnTime > 2.5f)
-        {
-            flyingEyeSpawnTime -= .5f;
-        }
-        
-        if(goblinSpawnTime > 3f)
-        {
-            goblinSpawnTime -= .5f;
-        }
-        
-        if(mushroomSpawnTime > 3.5f)
-        {
-            mushroomSpawnTime -= .5f;
-        }
-
-        if(skeletonSpawnTime > 4f)
-        {
-            skeletonSpawnTime -= .5f;
-        }
-    }
     // Add function which turns start wave to be true. 
     // Most likely has to be a button input
     // Add a function that pauses and unpauses the game
