@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Pathfinding;
 using UnityEngine.Tilemaps;
 
@@ -39,7 +40,10 @@ public class EnemyBehavior : MonoBehaviour
             DestroyEnemyFast();
         }
 
-        
+        if (GameManager.round >= 7)
+            SceneManager.LoadScene("Win Screen");
+        if (GameManager.lives <= 0)
+            SceneManager.LoadScene("Lose Screen");
 
         Debug.Log("Number of Enemies: " + EnemyList.Count);
     }
