@@ -122,7 +122,8 @@ public class Tower1 : MonoBehaviour
         return (towerName + "\n" +
             "Damage: " + damage + "\n" +
             "Range: " + range + "\n" +
-            "Attack Speed: " + attackSpeed);
+            "Attack Speed: " + attackSpeed + "\n" +
+            "Cost: $" + cost);
     }
 
     public string getSellInfo()
