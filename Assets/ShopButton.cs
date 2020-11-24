@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ShopButton : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler, IPointerClickHandler
+public class ShopButton : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject tower;
     public GameObject towerUI;
@@ -78,6 +78,19 @@ public class ShopButton : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(canAfford)
+        {
+            GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+        }
+    }
+    
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        GetComponent<RectTransform>().localScale = new Vector3(0.75f, 0.75f, 0.75f);
+    }
+
     void checkAffordability()
     {
         var temp = Instantiate(tower, new Vector3(100, 100, 100), Quaternion.identity);
@@ -102,7 +115,7 @@ public class ShopButton : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
             GetComponent<Image>().color = c;
         } else
         {
-            Color c = new Color32(191, 191, 191, 191);
+            Color c = new Color32(191, 64, 64, 128);
             GetComponent<Image>().color = c;
         }
     }
