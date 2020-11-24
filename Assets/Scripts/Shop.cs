@@ -69,7 +69,7 @@ public class Shop : MonoBehaviour
 
     public void Sell()
     {
-        if (gmanager.towerSelectedUI != null)
+        if (gmanager.towerSelectedUI != null && gmanager.towerSelectedUI.tower != null)
             gmanager.towerSelectedUI.ClickToSell();
     }
 }
