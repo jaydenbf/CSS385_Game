@@ -115,6 +115,7 @@ public class Tower1 : MonoBehaviour
     private void OnMouseDown()
     {
         gmanager.SelectTower(this);
+        gmanager.selectionDelay = Time.timeSinceLevelLoad;
     }
 
     public string getTowerInfo()

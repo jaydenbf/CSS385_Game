@@ -39,9 +39,12 @@ public class GameManager : MonoBehaviour
     public TowerSelect towerSelectedUI;
     private Tower1 selectedTower = null;
 
+    public float selectionDelay;
+
     // Start is called before the first frame update
     void Start()
     {
+        selectionDelay = float.MinValue;
         purchaseState = PurchaseState.None;
         groundTiles = GameObject.Find("Grid").GetComponentInChildren<Tilemap>();
         reservedTiles = new ArrayList();
@@ -103,13 +106,13 @@ public class GameManager : MonoBehaviour
     {
         updateUI();
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
-        Vector3Int tilePos = groundTiles.WorldToCell(worldPoint);
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
+        //Vector3Int tilePos = groundTiles.WorldToCell(worldPoint);
 
         // UpdateCursorTile(tilePos);
 
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             // Debug.Log(tilePos.x + " " + tilePos.y);
             if (reservedTiles.Contains(tilePos))
@@ -122,6 +125,15 @@ public class GameManager : MonoBehaviour
             {
                 PlaceDefense(tilePos);
                 towerSelectedUI.Hide();
+            }
+        }*/
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Time.timeSinceLevelLoad - selectionDelay >= 0.1)
+            {
+                towerSelectedUI.Hide();
+                selectionDelay = float.MinValue;
             }
         }
 
