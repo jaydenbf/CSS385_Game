@@ -98,9 +98,6 @@ public class EnemySpawnSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-            GameManager.round++;
-
         if (GameManager.round >= 7 && EnemyBehavior.EnemyList.Count == 0)
         {
             Thread.Sleep(750);
