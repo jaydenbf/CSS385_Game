@@ -10563,30 +10563,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerUINode
       objectReference: {fileID: 0}
+    - target: {fileID: 6257888593604046952, guid: 1275bd16ae769bd4bb92645ed2aacbcd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6257888593604046955, guid: 1275bd16ae769bd4bb92645ed2aacbcd,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6257888593604046955, guid: 1275bd16ae769bd4bb92645ed2aacbcd,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6257888593604046955, guid: 1275bd16ae769bd4bb92645ed2aacbcd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6257888593604046955, guid: 1275bd16ae769bd4bb92645ed2aacbcd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -44.059227
       objectReference: {fileID: 0}
     - target: {fileID: 6257888593604046955, guid: 1275bd16ae769bd4bb92645ed2aacbcd,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6257888593880384684, guid: 1275bd16ae769bd4bb92645ed2aacbcd,
         type: 3}
@@ -15347,6 +15352,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 0}
+  tower1: {fileID: 1395594694803136200, guid: ee494f3df0918874aa80ea952b5d5bb3, type: 3}
+  tower2: {fileID: -2112862601137311281, guid: 89d0d5dab1ed5ac469c9134679c660e0, type: 3}
+  tower3: {fileID: -4253148284270303756, guid: d9641d4c888a13541afce65b7ceb2347, type: 3}
+  tower4: {fileID: -7802162455805263734, guid: 50919998d03a2014eb01d7c8737ce256, type: 3}
 --- !u!114 &1953398518
 MonoBehaviour:
   m_ObjectHideFlags: 0
