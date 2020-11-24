@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  towerName: Fighter Plane
   range: 8
   attackSpeed: 1
   damage: 71

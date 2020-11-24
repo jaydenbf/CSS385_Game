@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  towerName: Crossbow
   range: 6
   attackSpeed: 0.5
   damage: 30
