@@ -11,6 +11,7 @@ public class Tower1 : MonoBehaviour
     public float range = 15f;
     public float attackSpeed = 1f;
     public int damage = 50;
+    public string note;
 
     [Header("Other")]
     private float fireCooldown = 0f;
@@ -124,7 +125,8 @@ public class Tower1 : MonoBehaviour
             "Damage: " + damage + "\n" +
             "Range: " + range + "\n" +
             "Attack Speed: " + attackSpeed + "\n" +
-            "Cost: $" + cost);
+            "Cost: $" + cost + "\n" +
+            note);
     }
 
     public string getSellInfo()

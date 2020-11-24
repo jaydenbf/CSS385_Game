@@ -102,6 +102,7 @@ MonoBehaviour:
   range: 6
   attackSpeed: 0.5
   damage: 30
+  note: Bouncing Projectiles
   enemyTag: Enemy
   Projectile: {fileID: 1772581913391082171, guid: ee2f5689be8728041bc4b953b77391e0,
     type: 3}
