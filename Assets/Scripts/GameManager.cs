@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         reservedTiles = new ArrayList();
 
         // Add lines to tile
-        string[] lines = System.IO.File.ReadAllLines("Assets/Scripts/ReservedTiles.txt");
+        /*string[] lines = System.IO.File.ReadAllLines("Assets/Scripts/ReservedTiles.txt");
         foreach (string line in lines)
         {
             string[] coords = line.Split(',');
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
                 new Vector3Int(int.Parse(coords[0], System.Globalization.NumberStyles.AllowLeadingSign), 
                 int.Parse(coords[1], System.Globalization.NumberStyles.AllowLeadingSign), 0));
         }
-        trueReservedTiles = lines.Length;
+        trueReservedTiles = lines.Length;*/
 
         defenses = new GameObject[4];
         defenses[0] = (GameObject)Resources.Load("Prefabs/DefenseObjects/Defense1");
