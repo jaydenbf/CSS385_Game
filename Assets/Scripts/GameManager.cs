@@ -211,7 +211,7 @@ public class GameManager : MonoBehaviour
     {
         livesUI.text = "Lives:\t\t" + lives;
         cashUI.text = "Cash:\t\t" + cash;
-        roundUI.text = "Round:\t" + (round + 1) + " / 7";
+        roundUI.text = "Round:\t\t" + (round + 1) + " / 7";
     }
 
     public void SelectTower(Tower1 tower_in)
