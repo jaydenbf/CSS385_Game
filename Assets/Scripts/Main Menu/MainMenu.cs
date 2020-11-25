@@ -10,6 +10,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Main Game");
     }
 
+    public void LoadNormalMap()
+    {
+        SceneManager.LoadScene("Normal Mode");
+    }
+
     public void LoadLevelSelector()
     {
         SceneManager.LoadScene("Level Selector");
