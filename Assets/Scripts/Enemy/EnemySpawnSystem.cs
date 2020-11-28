@@ -104,11 +104,7 @@ public class EnemySpawnSystem : MonoBehaviour
             string currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);
 
-            GameManager.lives = 100;
-            GameManager.cash = 100;
-            GameManager.round = 0;
-            EnemyBehavior.EnemyList.Clear();
-            spawnWave = false;
+            ResetGame();
             SceneManager.LoadScene("Win Screen");
             return;
         }
@@ -117,11 +113,8 @@ public class EnemySpawnSystem : MonoBehaviour
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);
-            GameManager.lives = 100;
-            GameManager.cash = 100;
-            GameManager.round = 0;
-            EnemyBehavior.EnemyList.Clear();
-            spawnWave = false;
+
+            ResetGame();
             SceneManager.LoadScene("Lose Screen");
             return;
         }
@@ -246,6 +239,20 @@ public class EnemySpawnSystem : MonoBehaviour
     // Most likely has to be a button input
     // Add a function that pauses and unpauses the game
 
+    private void ResetGame()
+    {
+        GameManager.SaveRoundInfo();
+        GameManager.lives = 100;
+        GameManager.cash = 100;
+        GameManager.round = 0;
+        EnemyBehavior.EnemyList.Clear();
+
+        GameManager.killedFlyingEye = 0;
+        GameManager.killedGoblin = 0;
+        GameManager.killedMushroom = 0;
+        GameManager.killedSkeleton = 0;
+        spawnWave = false;
+    }
     #endregion
 
     #region Spawn Enemies

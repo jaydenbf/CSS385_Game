@@ -31,6 +31,17 @@ public class GameManager : MonoBehaviour
     public static int lives = 100;
     public static int cash = 100;
     public static int round = 0;
+    public static int killedFlyingEye = 0;
+    public static int killedGoblin = 0;
+    public static int killedMushroom = 0;
+    public static int killedSkeleton = 0;
+
+    public static int lastLives;
+    public static int lastRound;
+    public static int lastKilledFlyingEye;
+    public static int lastKilledGoblin;
+    public static int lastKilledMushroom;
+    public static int lastKilledSkeleton;
 
     public Text livesUI;
     public Text cashUI;
@@ -44,6 +55,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lastLives = lives;
+        lastRound = round;
         selectionDelay = float.MinValue;
         purchaseState = PurchaseState.None;
         groundTiles = GameObject.Find("Grid").GetComponentInChildren<Tilemap>();
@@ -223,5 +236,15 @@ public class GameManager : MonoBehaviour
     public void addCash(int cash_in)
     {
         cash += cash_in;
+    }
+
+    public static void SaveRoundInfo()
+    {
+        lastLives = lives;
+        lastRound = round;
+        lastKilledFlyingEye = killedFlyingEye;
+        lastKilledGoblin = killedGoblin;
+        lastKilledMushroom = killedMushroom;
+        lastKilledSkeleton = killedSkeleton;
     }
 }

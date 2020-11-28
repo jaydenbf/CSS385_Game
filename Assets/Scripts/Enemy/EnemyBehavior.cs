@@ -16,6 +16,8 @@ public class EnemyBehavior : MonoBehaviour
     public Animator animator;
     public static List<EnemyBehavior> EnemyList = new List<EnemyBehavior>();
 
+    public int enemyName; 
+
     void Start()
     {
         targetpos = GetComponent<DestinationSetter>();
@@ -82,14 +84,36 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
-    /*
-    * 
-    * Probably have to add a collider
-    *
-    */
+
+    private void DestroyEnemyCounter()
+    {
+        //FlyingEye = 0,     // == 0
+        //Goblin = 1,     // == 1
+        //Mushroom = 2,     // == 2
+        //Skeleton = 3     // == 3
+        if (enemyName == 0)
+        {
+            GameManager.killedFlyingEye++;
+        }
+        else if(enemyName == 1)
+        {
+            GameManager.killedGoblin++;
+        }
+        else if(enemyName == 2)
+        {
+            GameManager.killedMushroom++;
+
+        }
+        else
+        {
+            GameManager.killedSkeleton++;
+        }
+    }
 
     private void DestroyEnemy()
     {
+        // Update which enemy is destoryed
+        DestroyEnemyCounter();
         UnityEngine.Debug.Log("Destroying Enemy");
 
         // Destroy(transform.parent.gameObject);
