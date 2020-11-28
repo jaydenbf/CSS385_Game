@@ -16,7 +16,9 @@ public class EnemyBehavior : MonoBehaviour
     public Animator animator;
     public static List<EnemyBehavior> EnemyList = new List<EnemyBehavior>();
 
-    public int enemyName; 
+    public int enemyName;
+
+    private bool callDestoryOnce = true;
 
     void Start()
     {
@@ -51,6 +53,12 @@ public class EnemyBehavior : MonoBehaviour
         // Enemy is deafeated
         if (health <= 0 || !alive)
         {
+            if (callDestoryOnce)
+            {
+                DestroyEnemyCounter();
+                callDestoryOnce = false;
+            }
+                
             if (alive)
                 GameManager.cash += reward;
             alive = false;
@@ -59,10 +67,6 @@ public class EnemyBehavior : MonoBehaviour
             
             EnemyList.Remove(this);
             gameObject.GetComponent<AIPath>().canMove = false;
-
-            // Change AIDestinationSetter to start point
-            //ChangeTarget();
-            //GameManager.lives -= numberOfLives;
 
             DestroyEnemy();
         }
@@ -76,11 +80,6 @@ public class EnemyBehavior : MonoBehaviour
             health -= damage;
             healthBar.SetHealth(health);
             healthBar.gameObject.SetActive(true);
-        }
-        if (health <= 0)
-        {
-            DestroyEnemy();
-            // Enemy destroyed! - add currency to shop (TODO)
         }
     }
 
@@ -113,7 +112,6 @@ public class EnemyBehavior : MonoBehaviour
     private void DestroyEnemy()
     {
         // Update which enemy is destoryed
-        DestroyEnemyCounter();
         UnityEngine.Debug.Log("Destroying Enemy");
 
         // Destroy(transform.parent.gameObject);
