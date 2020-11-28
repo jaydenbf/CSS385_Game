@@ -58,6 +58,7 @@ public class EnemySpawnSystem : MonoBehaviour
     private int mushroomAmount;
     private int skeletonAmount;
 
+    private bool freshRestart = true;
     public static int[] waveReward;
     #endregion
 
@@ -98,6 +99,12 @@ public class EnemySpawnSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (freshRestart)
+        {
+            freshRestart = false;
+            ResetGame();
+        }
+
         if (GameManager.round >= 7 && EnemyBehavior.EnemyList.Count == 0)
         {
             Thread.Sleep(750);
@@ -105,6 +112,7 @@ public class EnemySpawnSystem : MonoBehaviour
             SceneManager.LoadScene(currentSceneName);
 
             ResetGame();
+            freshRestart = true;
             SceneManager.LoadScene("Win Screen");
             return;
         }
@@ -115,6 +123,7 @@ public class EnemySpawnSystem : MonoBehaviour
             SceneManager.LoadScene(currentSceneName);
 
             ResetGame();
+            freshRestart = true;
             SceneManager.LoadScene("Lose Screen");
             return;
         }
