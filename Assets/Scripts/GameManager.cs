@@ -46,15 +46,22 @@ public class GameManager : MonoBehaviour
     public Text livesUI;
     public Text cashUI;
     public Text roundUI;
+    public Text roundNotification;
+    public Image roundImage;
 
     public TowerSelect towerSelectedUI;
     private Tower1 selectedTower = null;
 
+    private float time = 3f;
+    private static bool updateRoundTime = false;
+    public static bool newRoundTime = false;
     public float selectionDelay;
 
     // Start is called before the first frame update
     void Start()
     {
+        roundImage.enabled = false;
+        roundNotification.enabled = false;
         lastLives = lives;
         lastRound = round;
         selectionDelay = float.MinValue;
@@ -118,7 +125,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         updateUI();
-
+        ShowRoundNotification();
         //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         //Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
         //Vector3Int tilePos = groundTiles.WorldToCell(worldPoint);
@@ -238,6 +245,12 @@ public class GameManager : MonoBehaviour
         cash += cash_in;
     }
 
+    public static void UpdateRound()
+    {
+        round++;
+        updateRoundTime = true;
+    }
+
     public static void SaveRoundInfo()
     {
         lastLives = lives;
@@ -247,4 +260,46 @@ public class GameManager : MonoBehaviour
         lastKilledMushroom = killedMushroom;
         lastKilledSkeleton = killedSkeleton;
     }
+
+    private void ShowRoundNotification()
+    {
+        if (updateRoundTime)
+        {
+            time -= Time.smoothDeltaTime;
+            // Show Notification
+            roundImage.enabled = true;
+            roundNotification.enabled = true;
+
+            roundNotification.text = "Round " + round + " Ended";
+            if (time <= 0f)
+            {
+                // Remove  Notification
+                roundImage.enabled = false;
+                roundNotification.enabled = false;
+                time = 3f;
+                updateRoundTime = false;
+            }
+        }
+
+        if (newRoundTime)
+        {
+            time -= Time.smoothDeltaTime;
+
+            // Show Notification
+            roundImage.enabled = true;
+            roundNotification.enabled = true;
+            int tempRound = round + 1;
+            roundNotification.text = "Round " + tempRound + " Started";
+
+            if (time <= 0f)
+            {
+                // Remove Box
+                roundImage.enabled = false;
+                roundNotification.enabled = false;
+                time = 3f;
+                newRoundTime = false;
+            }
+        }
+    }
+
 }

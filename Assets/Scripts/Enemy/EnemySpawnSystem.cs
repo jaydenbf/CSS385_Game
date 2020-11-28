@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Threading;
 
@@ -128,11 +129,12 @@ public class EnemySpawnSystem : MonoBehaviour
             return;
         }
 
+        // Start the Wave
         if (startWave)
         {
             spawnWave = true;
             startWave = false;
-
+            GameManager.newRoundTime = true;
             // Tells enemy amount
             flyingEyeAmount = flyingEyeSpawn[waveCounter];
             goblinAmount = goblinSpawn[waveCounter];
@@ -141,7 +143,7 @@ public class EnemySpawnSystem : MonoBehaviour
         }
 
         // Does not do anything if the user pauses the wave
-        if (pauseWave)
+        if (!spawnWave)
         {
             return;
         }
@@ -159,6 +161,7 @@ public class EnemySpawnSystem : MonoBehaviour
 
     void Spawner()
     {
+        // Start the Round
         if (spawnWave)
         {
             
@@ -171,7 +174,7 @@ public class EnemySpawnSystem : MonoBehaviour
                 goblinTimePast = 0f;
                 mushroomTimePast = 0f;
                 skeletonTimePast = 0f;
-                GameManager.round += 1;
+                GameManager.UpdateRound();
 
                 AdjustSpawnTimes(1f);
                 return;
@@ -261,6 +264,12 @@ public class EnemySpawnSystem : MonoBehaviour
         GameManager.killedMushroom = 0;
         GameManager.killedSkeleton = 0;
         spawnWave = false;
+    }
+
+    public void StartWave()
+    {
+        startWave = true;
+
     }
     #endregion
 

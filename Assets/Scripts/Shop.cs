@@ -59,7 +59,7 @@ public class Shop : MonoBehaviour
     public void StartWave()
     {
         Debug.Log("Wave begin");
-        es.startWave = true;
+        es.StartWave();
     }
 
     public void Quit()
