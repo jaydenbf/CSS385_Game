@@ -188,6 +188,7 @@ MonoBehaviour:
   reward: 2
   numberOfLives: 3
   animator: {fileID: 7579890877468130135}
+  enemyName: 3
 --- !u!50 &7579890877468130137
 Rigidbody2D:
   serializedVersion: 4

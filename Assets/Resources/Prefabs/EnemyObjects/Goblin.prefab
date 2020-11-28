@@ -188,6 +188,7 @@ MonoBehaviour:
   reward: 1
   numberOfLives: 2
   animator: {fileID: 5024354077371357889}
+  enemyName: 1
 --- !u!61 &5024354077371357919
 BoxCollider2D:
   m_ObjectHideFlags: 0
