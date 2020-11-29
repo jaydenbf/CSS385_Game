@@ -5,7 +5,7 @@ using UnityEngine;
 public class TowerUI : MonoBehaviour
 {
     bool isColliding = false;
-    public GameObject tower;
+    public Tower1 tower;
 
     void Start()
     {

@@ -5,43 +5,58 @@ using UnityEngine.UI;
 
 public class Tooltip : MonoBehaviour
 {
-    public Text text;
-    public Tower1 tower1;
-    public Tower1 tower2;
-    public Tower1 tower3;
-    public Tower1 tower4;
+    private Text tooltipText;
+    private RectTransform backgroundRectTransform;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        text = GetComponent<Text>();
-        text.text = "";
-    }
+    private float lastUpdate = 0;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        backgroundRectTransform = transform.Find("Background").GetComponent<RectTransform>();
+        tooltipText = transform.Find("Text").GetComponent<Text>();
+
+        Debug.Assert(tooltipText != null);
+        HideTooltip();
     }
 
-    public void ShowTooltip1()
+    private void Update()
     {
-        text.text = tower1.getTowerInfo();
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            transform.parent.GetComponent<RectTransform>(), Input.mousePosition, null, out localPoint);
+        transform.localPosition = localPoint + new Vector2(2f, 2f);
+
+        Vector3 pos = gameObject.transform.position;
+        pos.x -= tooltipText.preferredWidth;
+        gameObject.transform.position = pos;
+
     }
-    public void ShowTooltip2()
+
+    public void HideTooltip()
     {
-        text.text = tower2.getTowerInfo();
+        gameObject.SetActive(false);
     }
-    public void ShowTooltip3()
+
+    public void SetCurTooltip(string s)
     {
-        text.text = tower3.getTowerInfo();
-    }
-    public void ShowTooltip4()
-    {
-        text.text = tower4.getTowerInfo();
-    }
-    public void ResetTooltip()
-    {
-        text.text = "";
+        if (s == "")
+            HideTooltip();
+
+        gameObject.SetActive(true);
+
+        tooltipText.text = s;
+        float textPaddingSize = 4f;
+        Vector2 backgroundSize = new Vector2(tooltipText.preferredWidth + textPaddingSize * 2f,
+            tooltipText.preferredHeight + textPaddingSize * 2f);
+        backgroundRectTransform.sizeDelta = backgroundSize;
+
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            transform.parent.GetComponent<RectTransform>(), Input.mousePosition, null, out localPoint);
+        transform.localPosition = localPoint + new Vector2(2f, 2f);
+
+        Vector3 pos = gameObject.transform.position;
+        pos.x -= tooltipText.preferredWidth;
+        gameObject.transform.position = pos;
     }
 }

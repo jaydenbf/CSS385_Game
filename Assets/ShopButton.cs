@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class ShopButton : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject tower;
-    public GameObject towerUI;
+    public Tooltip tooltip;
+
+    public Tower1 tower;
+    public TowerUI towerUI;
     bool canAfford = false;
 
     void Start()
@@ -84,11 +86,13 @@ public class ShopButton : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         {
             GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
         }
+        tooltip.SetCurTooltip(tower.getTowerInfo());
     }
     
     public void OnPointerExit(PointerEventData eventData)
     {
         GetComponent<RectTransform>().localScale = new Vector3(0.75f, 0.75f, 0.75f);
+        tooltip.HideTooltip();
     }
 
     void checkAffordability()
