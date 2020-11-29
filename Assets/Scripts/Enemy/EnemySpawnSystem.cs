@@ -268,8 +268,10 @@ public class EnemySpawnSystem : MonoBehaviour
 
     public void StartWave()
     {
-        startWave = true;
-
+        if (!spawnWave)
+        {
+            startWave = true;
+        }
     }
     #endregion
 

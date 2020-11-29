@@ -263,6 +263,14 @@ public class GameManager : MonoBehaviour
 
     private void ShowRoundNotification()
     {
+        if(!updateRoundTime && !newRoundTime)
+        {
+            roundImage.enabled = false;
+            roundNotification.enabled = false;
+            return;
+        }
+
+
         if (updateRoundTime)
         {
             time -= Time.smoothDeltaTime;
@@ -279,6 +287,7 @@ public class GameManager : MonoBehaviour
                 time = 3f;
                 updateRoundTime = false;
             }
+            return;
         }
 
         if (newRoundTime)
