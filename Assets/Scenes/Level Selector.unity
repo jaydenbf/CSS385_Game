@@ -589,7 +589,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 550562008}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: LoadNormalMap
+        m_MethodName: LoadDifficultMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4210,7 +4210,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 550562008}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: LoadDifficultMap
+        m_MethodName: LoadNormalMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
