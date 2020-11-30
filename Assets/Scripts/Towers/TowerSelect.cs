@@ -60,28 +60,13 @@ public class TowerSelect : MonoBehaviour
     public void ClickToUpgrade()
     {
         // this check is not working
-        if ((GameManager.GetCash() > tower.towerUpgrade.cost) && (tower.towerUpgrade != null))
+        if ((GameManager.GetCash() > tower.towerUpgrade.cost) && (tower.towerUpgrade != null) && tower.level < 3)
         {
             Debug.Log("Cash: " + GameManager.GetCash());
             // remove cash
             GameManager.RemoveCash(tower.towerUpgrade.cost);
-
-            // instantiate new tower
-            Tower1 newTowerInfo = tower.towerUpgrade;
-            Vector3 newTowerPosition = tower.transform.position;
-            Quaternion newTowerRotation = tower.transform.rotation;
-
-            // destroy old tower
-            tower.Destroy();
-
-            // create new tower
-            Tower1 newTower = Instantiate(newTowerInfo, newTowerPosition, newTowerRotation);
-
-            tower = newTower;
-
-            sellButtonText.text = tower.getSellInfo();
-            upgradeButtonText.text = tower.getUpgradeInfo();
-            SetTarget(tower);
+            
+            tower.Upgrade();
         }
     }
 
