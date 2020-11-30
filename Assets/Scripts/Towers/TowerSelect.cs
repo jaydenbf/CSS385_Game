@@ -18,15 +18,26 @@ public class TowerSelect : MonoBehaviour
 
     void Start()
     {
-        sellButton.onClick.AddListener(ClickToSell);
-        upgradeButton.onClick.AddListener(ClickToUpgrade);
+
+
         gmanager = GameObject.FindObjectOfType<GameManager>();
         ui.SetActive(false);
     }
 
     void Update()
     {
-
+        if (tower == null || towerDetails == null)
+        {
+            sellButtonText.text = "Sell";
+            upgradeButtonText.text = "Upgrade";
+            return;
+        }
+        towerDetails.text = tower.getTowerInfo();
+        sellButtonText.text = tower.getSellInfo();
+        if (tower.level == 3)
+            upgradeButtonText.text = tower.getUpgradeInfo(false);
+        else
+            upgradeButtonText.text = tower.getUpgradeInfo(true);
     }
 
 
@@ -52,10 +63,6 @@ public class TowerSelect : MonoBehaviour
 
         transform.position = tower.transform.position;
 
-        towerDetails.text = tower.getTowerInfo();
-        sellButtonText.text = tower.getSellInfo();
-        upgradeButtonText.text = tower.getUpgradeInfo();
-
         //set range indicator size... this is not exact
         //rangeIndicator.transform.localScale = new Vector2(tower.range * .8f, tower.range * .8f);
         //rangeIndicator.enabled = true;
@@ -64,12 +71,15 @@ public class TowerSelect : MonoBehaviour
 
     public void Hide()
     {
+        Vector3 v = GetMouseWorldPosition();
+        if (v.x > 7.5)
+            return;
         //rangeIndicator.enabled = false;
         ui.SetActive(false);
 
         if (tower != null)
         {
-            Vector3 v = GetMouseWorldPosition();
+            
             if(v.x <= 7.5)
             {
                 tower.isSelected = false;
@@ -93,28 +103,30 @@ public class TowerSelect : MonoBehaviour
 
     public void ClickToSell()
     {
+        if (tower == null)
+        {
+            ui.SetActive(false);
+            return;
+        }
+
         // refund cash
         GameManager.addCash(tower.cost);
         tower.cost = 0;
         tower.Destroy();
-
+        tower = null;
+        ui.SetActive(false);
+        
         Hide();
     }
 
     public void ClickToUpgrade()
     {
-        // this check is not working
-        if ((GameManager.GetCash() > tower.towerUpgrade.cost) && (tower.towerUpgrade != null) && tower.level < 3)
+        if (tower == null)
+            return;
+        if (GameManager.cash >= tower.cost && tower.level < 3)
         {
-            Debug.Log("Cash: " + GameManager.GetCash());
-            // remove cash
-            GameManager.RemoveCash(tower.towerUpgrade.cost);
-            
             tower.Upgrade();
-
-            sellButtonText.text = tower.getSellInfo();
-            upgradeButtonText.text = tower.getUpgradeInfo();
-            SetTarget(tower);
+            GameManager.cash -= tower.cost;
         }
     }
 

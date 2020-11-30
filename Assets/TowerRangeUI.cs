@@ -18,7 +18,7 @@ public class TowerRangeUI : MonoBehaviour
 
         if (t.isColliding)
         {
-            Color c = new Color(255, 191, 191, 191);
+            Color c = Color.red;
             sr.color = c;
         }
         else

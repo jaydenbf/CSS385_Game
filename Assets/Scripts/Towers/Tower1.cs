@@ -32,6 +32,7 @@ public class Tower1 : MonoBehaviour
     public int cost = 10;
 
     private GameManager gmanager;
+    private GameObject upgrade;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,7 @@ public class Tower1 : MonoBehaviour
         // set the firepoint to the center of the tower
         firePoint = transform;
 
+        upgrade = (GameObject)Resources.Load("Prefabs/DefenseObjects/Upgrade");
         gmanager = GameObject.FindObjectOfType<GameManager>();
     }
 
@@ -129,11 +131,19 @@ public class Tower1 : MonoBehaviour
 
     public string getTowerUpgradeInfo()
     {
-        return (towerName + "\n" +
+        if (level <= 2)
+            return (towerName + "\n" +
             "Level " + level + "\n\n" +
             "Damage: " + damage + "→" + (damage + damageUpgrade) + "\n" +
             "Range: " + range + "→" + (range + rangeUpgrade) + "\n" +
             "Speed: " + attackSpeed + "→" + (attackSpeed + attackSpeedUpgrade) + "\n");
+        else
+            return (towerName + "\n" +
+            "Level " + level + "\n\n" +
+            "Damage: " + damage + "\n" +
+            "Range: " + range + "\n" +
+            "Speed: " + attackSpeed+ "\n");
+
     }
 
     public string getTowerInfo()
@@ -154,9 +164,12 @@ public class Tower1 : MonoBehaviour
         range += rangeUpgrade;
 
         if (level == 2)
-            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-        if (level == 3)
+            gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+        else if (level == 3)
+        {
+            GameObject.Instantiate(upgrade, gameObject.GetComponent<Transform>());
             gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        }
     }
 
     public string getSellInfo()
@@ -164,16 +177,12 @@ public class Tower1 : MonoBehaviour
         return ("Sell $" + cost);
     }
 
-    public string getUpgradeInfo()
+    public string getUpgradeInfo(bool canUpgrade)
     {
-        if (towerUpgrade != null)
-        {
-            return ("Upgrade $" + towerUpgrade.cost);
-        }
+        if (canUpgrade)
+            return ("Upgrade ($" + cost + ")");
         else
-        {
-            return ("Fully Upgraded");
-        }
+            return ("Max Upgrades");
     }
 
     public void Destroy()

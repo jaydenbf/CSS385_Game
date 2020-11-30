@@ -6,6 +6,9 @@ public class Shop : MonoBehaviour
     public EnemySpawnSystem es;
     public GameManager gmanager;
     public Text sellText;
+    public Button playButton;
+    public Sprite whitePlay;
+    public Sprite blackPlay;
 
     private void Start()
     {
@@ -71,5 +74,14 @@ public class Shop : MonoBehaviour
     {
         if (gmanager.towerSelectedUI != null && gmanager.towerSelectedUI.tower != null)
             gmanager.towerSelectedUI.ClickToSell();
+    }
+
+    public void PlayButtonHover()
+    {
+        playButton.GetComponent<Image>().sprite = whitePlay;
+    }
+    public void PlayButtonHoverExit()
+    {
+        playButton.GetComponent<Image>().sprite = blackPlay;
     }
 }

@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 1447607435
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a79c7674df3583b499184658a61abd26, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa74cd0f66644ee499443f09113e52b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 0.83, y: 1.295}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,18 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3300f6481ccf7124e9b2fe7a301103b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelected: 0
   target: {fileID: 0}
-  towerName: Marksman
-  range: 14
-  attackSpeed: 0.5
-  damage: 35
+  towerName: Gunner
+  range: 6
+  attackSpeed: 15
+  damage: 1
   level: 1
-  note: More Range
+  note: High Fire Rate
   rangeUpgrade: 2
   attackSpeedUpgrade: 0.25
   damageUpgrade: 10
   enemyTag: Enemy
-  Projectile: {fileID: 8976793673133718967, guid: 624b2fac0a5dbf14fa714699bf4023db,
+  Projectile: {fileID: 8976793673133718967, guid: ea67a000c124a684382b673864f9464b,
     type: 3}
   firePoint: {fileID: 0}
   towerUpgrade: {fileID: 6197017829946700104, guid: 962babefe2429ca4cb09aedc4435b5af,
@@ -153,8 +154,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 5, y: 5}
+    oldSize: {x: 0.83, y: 1.295}
+    newSize: {x: 0.83, y: 1.295}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -232,7 +233,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1522468203
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 49bbea4ece328b64aae5c7fe11e6ed7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
