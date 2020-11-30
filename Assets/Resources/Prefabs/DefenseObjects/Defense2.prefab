@@ -101,14 +101,14 @@ MonoBehaviour:
   isSelected: 0
   target: {fileID: 0}
   towerName: Gunner
-  range: 6
+  range: 5
   attackSpeed: 15
   damage: 1
   level: 1
   note: High Fire Rate
-  rangeUpgrade: 2
-  attackSpeedUpgrade: 0.25
-  damageUpgrade: 10
+  damageUpgrade: 1
+  rangeUpgrade: 1
+  customUpgradeCode: norange3
   enemyTag: Enemy
   Projectile: {fileID: 8976793673133718967, guid: ea67a000c124a684382b673864f9464b,
     type: 3}

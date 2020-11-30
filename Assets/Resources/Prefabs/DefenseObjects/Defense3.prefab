@@ -196,14 +196,15 @@ MonoBehaviour:
   isSelected: 0
   target: {fileID: 0}
   towerName: Bomber
-  range: 6.75
+  range: 5
   attackSpeed: 0.7
-  damage: 40
+  damage: 30
   level: 1
   note: AOE Damage
-  rangeUpgrade: 2
-  attackSpeedUpgrade: 0.25
   damageUpgrade: 10
+  rangeUpgrade: 1
+  customUpgradeCode: norange2,radius2
+  upgradeCodes: []
   enemyTag: Enemy
   Projectile: {fileID: 4263793719979987434, guid: 9391ce4922f79c3489ddd080b43ef064,
     type: 3}

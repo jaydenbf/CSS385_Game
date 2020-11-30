@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   AoERadius: 0
-  attackBounces: 4
+  attackBounces: 3
   bounceRange: 5
   enemyTag: Enemy
   damage: 50

@@ -19,9 +19,11 @@ public class Tower1 : MonoBehaviour
     private float fireCooldown = 0f;
 
     [Header("Upgrade Values")]
-    public float rangeUpgrade = 2f;
-    public float attackSpeedUpgrade = 1f;
-    public int damageUpgrade = 10;
+    public int damageUpgrade;
+    public float rangeUpgrade;
+    public string customUpgradeCode;
+
+    public string[] upgradeCodes;
 
     public string enemyTag = "Enemy";
 
@@ -45,6 +47,8 @@ public class Tower1 : MonoBehaviour
 
         upgrade = (GameObject)Resources.Load("Prefabs/DefenseObjects/Upgrade");
         gmanager = GameObject.FindObjectOfType<GameManager>();
+
+        upgradeCodes = customUpgradeCode.Split(',');
     }
 
     // Update is called once per frame
@@ -131,19 +135,61 @@ public class Tower1 : MonoBehaviour
 
     public string getTowerUpgradeInfo()
     {
-        if (level <= 2)
-            return (towerName + "\n" +
-            "Level " + level + "\n\n" +
-            "Damage: " + damage + "→" + (damage + damageUpgrade) + "\n" +
-            "Range: " + range + "→" + (range + rangeUpgrade) + "\n" +
-            "Speed: " + attackSpeed + "→" + (attackSpeed + attackSpeedUpgrade) + "\n");
-        else
+        if (level == 3)
+        {
             return (towerName + "\n" +
             "Level " + level + "\n\n" +
             "Damage: " + damage + "\n" +
-            "Range: " + range + "\n" +
-            "Speed: " + attackSpeed+ "\n");
+            "Range: " + range + "\n");
+        }
 
+        level++;
+
+
+        bool noDamage = false;
+        bool noRange = false;
+        bool radius = false;
+        bool bounce = false;
+
+
+        foreach (string s in upgradeCodes)
+        {
+            if (s == "nodamage" + level.ToString())
+                noDamage = true;
+            if (s == "norange" + level.ToString())
+                noRange = true;
+            if (s == "radius" + level.ToString())
+                radius = true;
+            if (s == "bounce" + level.ToString())
+                bounce = true;
+        }
+
+        
+
+        string str = towerName + "\n" + "Level " + --level + "\n\n";
+        if (noDamage)
+            str += "Damage: " + damage + "\n";
+        else
+            str += "Damage: " + damage + "→" + (damage + damageUpgrade) + "\n";
+
+        if (noRange)
+            str += "Range: " + range + "\n";
+        else
+            str += "Range: " + range + "→" + (range + rangeUpgrade) + "\n";
+
+        if (radius)
+        {
+            float temp = Projectile.GetComponent<Projectile>().AoERadius;
+            str += "Radius: " + temp + "→" + ++temp + "\n";
+        }
+
+        if (bounce)
+        {
+            float temp = Projectile.GetComponent<Projectile>().attackBounces;
+            str += "Bounces: " + temp + "→" + ++temp + "\n";
+        }
+
+        return str;
     }
 
     public string getTowerInfo()
@@ -159,9 +205,31 @@ public class Tower1 : MonoBehaviour
     public void Upgrade()
     {
         level += 1;
-        attackSpeed += attackSpeedUpgrade;
-        damage += damageUpgrade;
-        range += rangeUpgrade;
+        bool noDamage = false;
+        bool noRange = false;
+        bool radius = false;
+        bool bounce = false;
+
+        foreach (string str in upgradeCodes)
+        {
+            if (str == "nodamage" + level.ToString())
+                noDamage = true;
+            if (str == "norange" + level.ToString())
+                noRange = true;
+            if (str == "radius" + level.ToString())
+                radius = true;
+            if (str == "bounce" + level.ToString())
+                bounce = true;
+        }
+
+        if (!noDamage)
+            damage += damageUpgrade;
+        if (!noRange)
+            range += rangeUpgrade;
+        if (radius)
+            Projectile.GetComponent<Projectile>().AoERadius++;
+        if (bounce)
+            Projectile.GetComponent<Projectile>().attackBounces++;
 
         if (level == 2)
             gameObject.GetComponent<SpriteRenderer>().color = Color.green;

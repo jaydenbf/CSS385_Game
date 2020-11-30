@@ -101,14 +101,14 @@ MonoBehaviour:
   isSelected: 0
   target: {fileID: 0}
   towerName: Bouncer
-  range: 6
-  attackSpeed: 0.5
-  damage: 30
+  range: 5
+  attackSpeed: 0.7
+  damage: 40
   level: 1
   note: Bouncing Projectiles
-  rangeUpgrade: 2
-  attackSpeedUpgrade: 0.25
   damageUpgrade: 10
+  rangeUpgrade: 2
+  customUpgradeCode: nodamage3,norange3,bounce3
   enemyTag: Enemy
   Projectile: {fileID: 1772581913391082171, guid: ee2f5689be8728041bc4b953b77391e0,
     type: 3}
