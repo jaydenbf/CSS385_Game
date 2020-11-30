@@ -97,8 +97,7 @@ public class ShopButton : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
     void checkAffordability()
     {
-        var temp = Instantiate(tower, new Vector3(100, 100, 100), Quaternion.identity);
-        int cost = temp.GetComponent<Tower1>().cost;
+        int cost = tower.cost;
 
         if (GameManager.cash - cost >= 0)
         {
@@ -107,8 +106,6 @@ public class ShopButton : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         {
             canAfford = false;
         }
-
-        Destroy(temp);
     }
 
     void updateColor()
