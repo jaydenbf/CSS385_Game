@@ -26,7 +26,7 @@ public class Tower1 : MonoBehaviour
 
     public GameObject Projectile;
     public Transform firePoint;
-    public Tower1 towerUpgrade;
+    public Tower1 towerUpgrade = null;
 
     public int cost = 10;
 

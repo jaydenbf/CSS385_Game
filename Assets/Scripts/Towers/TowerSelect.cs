@@ -50,7 +50,7 @@ public class TowerSelect : MonoBehaviour
     public void ClickToSell()
     {
         // refund cash
-        gmanager.addCash(tower.cost);
+        GameManager.addCash(tower.cost);
         tower.cost = 0;
         tower.Destroy();
 
@@ -59,12 +59,29 @@ public class TowerSelect : MonoBehaviour
 
     public void ClickToUpgrade()
     {
-        if (gmanager.GetCash() > tower.towerUpgrade.cost)
+        // this check is not working
+        if ((GameManager.GetCash() > tower.towerUpgrade.cost) && (tower.towerUpgrade != null))
         {
+            Debug.Log("Cash: " + GameManager.GetCash());
             // remove cash
-            gmanager.RemoveCash(tower.towerUpgrade.cost);
+            GameManager.RemoveCash(tower.towerUpgrade.cost);
 
-            tower.Upgrade();
+            // instantiate new tower
+            Tower1 newTowerInfo = tower.towerUpgrade;
+            Vector3 newTowerPosition = tower.transform.position;
+            Quaternion newTowerRotation = tower.transform.rotation;
+
+            // destroy old tower
+            tower.Destroy();
+
+            // create new tower
+            Tower1 newTower = Instantiate(newTowerInfo, newTowerPosition, newTowerRotation);
+
+            tower = newTower;
+
+            sellButtonText.text = tower.getSellInfo();
+            upgradeButtonText.text = tower.getUpgradeInfo();
+            SetTarget(tower);
         }
     }
 
