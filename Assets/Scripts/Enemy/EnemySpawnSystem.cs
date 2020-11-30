@@ -300,10 +300,10 @@ public class EnemySpawnSystem : MonoBehaviour
         GameObject e = GameObject.Instantiate(eGoblin) as GameObject;
 
         // Find target designation
-        PickDestination(2);
+        PickDestination(3);
 
         // Starting pos
-        e.transform.position = generateValue(true);
+        e.transform.position = generateValue(false);
         //e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -336,10 +336,10 @@ public class EnemySpawnSystem : MonoBehaviour
         GameObject e = GameObject.Instantiate(eSkeleton) as GameObject;
 
         // Find target designation
-        PickDestination(3);
+        PickDestination(2);
 
         // Starting pos
-        e.transform.position = generateValue(false);
+        e.transform.position = generateValue(true);
         // e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
