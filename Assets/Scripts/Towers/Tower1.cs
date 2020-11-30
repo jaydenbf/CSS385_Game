@@ -151,6 +151,11 @@ public class Tower1 : MonoBehaviour
         attackSpeed += attackSpeedUpgrade;
         damage += damageUpgrade;
         range += rangeUpgrade;
+
+        if (level == 2)
+            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        if (level == 3)
+            gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
     }
 
     public string getSellInfo()

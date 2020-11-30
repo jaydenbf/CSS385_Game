@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour
     public static bool newRoundTime = false;
     public float selectionDelay;
 
+    public string currentNotif;
+    public bool notRound = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,6 +99,7 @@ public class GameManager : MonoBehaviour
         Debug.Assert(background != null);
 
         Vector3 dir = transform.transform.localPosition - transform.position;
+
     }
 
     /*private void OnGUI()
@@ -325,6 +329,6 @@ public class GameManager : MonoBehaviour
                 newRoundTime = false;
             }
         }
-    }
 
+    }
 }
