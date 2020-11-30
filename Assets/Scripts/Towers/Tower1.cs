@@ -20,6 +20,7 @@ public class Tower1 : MonoBehaviour
 
     public GameObject Projectile;
     public Transform firePoint;
+    public Tower1 towerUpgrade;
 
     public int cost = 10;
 
@@ -132,6 +133,18 @@ public class Tower1 : MonoBehaviour
     public string getSellInfo()
     {
         return ("Sell $" + cost);
+    }
+
+    public string getUpgradeInfo()
+    {
+        if (towerUpgrade != null)
+        {
+            return ("Upgrade $" + towerUpgrade.cost);
+        }
+        else
+        {
+            return ("Fully Upgraded");
+        }
     }
 
     public void Destroy()

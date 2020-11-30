@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &926196881092679328
+--- !u!1 &3057667927923859651
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9001947632501392756}
-  - component: {fileID: 3598781640009310173}
-  - component: {fileID: -7802162455805263734}
-  - component: {fileID: -2801537240865093915}
-  - component: {fileID: -967787008884885694}
+  - component: {fileID: 1004040301432036088}
+  - component: {fileID: 475559270041530554}
+  - component: {fileID: 1169215739136310191}
+  - component: {fileID: 6429651893216245790}
+  - component: {fileID: 5894305964567233069}
   m_Layer: 10
-  m_Name: Defense4
+  m_Name: Upgrade3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9001947632501392756
+--- !u!4 &1004040301432036088
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926196881092679328}
+  m_GameObject: {fileID: 3057667927923859651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 24.036045, y: -8.483761, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3598781640009310173
+--- !u!212 &475559270041530554
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926196881092679328}
+  m_GameObject: {fileID: 3057667927923859651}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,50 +74,49 @@ SpriteRenderer:
   m_SortingLayerID: 1447607435
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7effb29ccfe8ce9498429e6a2cb6ccfd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee8cc05f0f8059f49bb0030f02934999, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7802162455805263734
+--- !u!114 &1169215739136310191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926196881092679328}
+  m_GameObject: {fileID: 3057667927923859651}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3300f6481ccf7124e9b2fe7a301103b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  towerName: Crossbow
-  range: 6
-  attackSpeed: 0.5
-  damage: 30
-  note: Bouncing Projectiles
+  towerName: Cannon 2
+  range: 6.75
+  attackSpeed: 1
+  damage: 90
+  note: AOE Damage
   enemyTag: Enemy
-  Projectile: {fileID: 1772581913391082171, guid: ee2f5689be8728041bc4b953b77391e0,
+  Projectile: {fileID: 4263793719979987434, guid: 9391ce4922f79c3489ddd080b43ef064,
     type: 3}
   firePoint: {fileID: 0}
-  towerUpgrade: {fileID: 2324539585027707316, guid: ad503fa8adbaf034bae1206ecf6d0011,
-    type: 3}
-  cost: 60
---- !u!50 &-2801537240865093915
+  towerUpgrade: {fileID: 0}
+  cost: 50
+--- !u!50 &6429651893216245790
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926196881092679328}
+  m_GameObject: {fileID: 3057667927923859651}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -131,13 +130,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &-967787008884885694
+--- !u!61 &5894305964567233069
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926196881092679328}
+  m_GameObject: {fileID: 3057667927923859651}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -149,7 +148,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

@@ -245,6 +245,17 @@ public class GameManager : MonoBehaviour
         cash += cash_in;
     }
 
+    public float GetCash()
+    {
+        return cash;
+    }
+
+    public void RemoveCash(int cash_out)
+    {
+        cash = cash - cash_out;
+    }
+
+
     public static void UpdateRound()
     {
         round++;

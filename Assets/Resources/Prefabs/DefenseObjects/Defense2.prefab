@@ -107,6 +107,8 @@ MonoBehaviour:
   Projectile: {fileID: 8976793673133718967, guid: 624b2fac0a5dbf14fa714699bf4023db,
     type: 3}
   firePoint: {fileID: 0}
+  towerUpgrade: {fileID: 6197017829946700104, guid: 962babefe2429ca4cb09aedc4435b5af,
+    type: 3}
   cost: 35
 --- !u!50 &-8587596827883317890
 Rigidbody2D:
