@@ -157,6 +157,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.M))
+        {
+            cash = 9999;
+        }
+
         updateUI();
     }
 

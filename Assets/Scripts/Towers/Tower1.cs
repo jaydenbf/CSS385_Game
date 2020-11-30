@@ -11,10 +11,16 @@ public class Tower1 : MonoBehaviour
     public float range = 15f;
     public float attackSpeed = 1f;
     public int damage = 50;
+    public int level = 1;
     public string note;
 
     [Header("Other")]
     private float fireCooldown = 0f;
+
+    [Header("Upgrade Values")]
+    public float rangeUpgrade = 2f;
+    public float attackSpeedUpgrade = -0.25f;
+    public int damageUpgrade = 10;
 
     public string enemyTag = "Enemy";
 
@@ -120,14 +126,31 @@ public class Tower1 : MonoBehaviour
         gmanager.selectionDelay = Time.timeSinceLevelLoad;
     }
 
+    public string getTowerUpgradeInfo()
+    {
+        return (towerName + "\n" +
+            "Level " + level + "\n\n" +
+            "Damage: " + damage + "→" + (damage + damageUpgrade) + "\n" +
+            "Range: " + range + "→" + (range + rangeUpgrade) + "\n" +
+            "Cooldown: " + attackSpeed + "→" + (attackSpeed + attackSpeedUpgrade) + "\n");
+    }
+
     public string getTowerInfo()
     {
         return (towerName + "\n" +
-            "Damage: " + damage + "\n" +
+            "Damage: " + damage + "\n" + 
             "Range: " + range + "\n" +
             "Attack Speed: " + attackSpeed + "\n" +
             "Cost: $" + cost + "\n" +
             note);
+    }
+
+    public void Upgrade()
+    {
+        level += 1;
+        attackSpeed += attackSpeedUpgrade;
+        damage += damageUpgrade;
+        range += rangeUpgrade;
     }
 
     public string getSellInfo()

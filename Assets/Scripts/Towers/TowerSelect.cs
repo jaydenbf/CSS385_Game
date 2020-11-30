@@ -64,19 +64,7 @@ public class TowerSelect : MonoBehaviour
             // remove cash
             gmanager.RemoveCash(tower.towerUpgrade.cost);
 
-            // instantiate new tower
-            Tower1 newTowerInfo = tower.towerUpgrade;
-            Vector3 newTowerPosition = tower.transform.position;
-            Quaternion newTowerRotation = tower.transform.rotation;
-
-            // destroy old tower
-            tower.Destroy();
-
-            // create new tower
-            Tower1 newTower = Instantiate(newTowerInfo, newTowerPosition, newTowerRotation);
-
-            tower = newTower;
-
+            tower.Upgrade();
         }
     }
 
