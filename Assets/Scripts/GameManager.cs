@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour
     public static bool newRoundTime = false;
     public float selectionDelay;
 
+    public string currentNotif;
+    public bool notRound = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,6 +99,7 @@ public class GameManager : MonoBehaviour
         Debug.Assert(background != null);
 
         Vector3 dir = transform.transform.localPosition - transform.position;
+
     }
 
     /*private void OnGUI()
@@ -155,6 +159,11 @@ public class GameManager : MonoBehaviour
                 towerSelectedUI.Hide();
                 selectionDelay = float.MinValue;
             }
+        }
+
+        if (Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.M))
+        {
+            cash = 9999;
         }
 
         updateUI();
@@ -240,17 +249,17 @@ public class GameManager : MonoBehaviour
         towerSelectedUI.SetTarget(tower_in);
     }
 
-    public void addCash(int cash_in)
-    {
-        cash += cash_in;
-    }
-
-    public float GetCash()
+    public static int GetCash()
     {
         return cash;
     }
 
-    public void RemoveCash(int cash_out)
+    public static void addCash(int cash_in)
+    {
+        cash += cash_in;
+    }
+
+    public static void RemoveCash(int cash_out)
     {
         cash = cash - cash_out;
     }
@@ -320,6 +329,6 @@ public class GameManager : MonoBehaviour
                 newRoundTime = false;
             }
         }
-    }
 
+    }
 }

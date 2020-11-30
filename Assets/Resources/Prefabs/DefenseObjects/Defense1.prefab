@@ -199,7 +199,11 @@ MonoBehaviour:
   range: 8
   attackSpeed: 1
   damage: 71
+  level: 1
   note: More Damage
+  rangeUpgrade: 2
+  attackSpeedUpgrade: 0.25
+  damageUpgrade: 10
   enemyTag: Enemy
   Projectile: {fileID: 8976793673133718967, guid: 624b2fac0a5dbf14fa714699bf4023db,
     type: 3}
