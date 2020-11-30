@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Tower1 : MonoBehaviour
 {
+    public bool isSelected = false;
     public Transform target;
 
     [Header("Attributes")]

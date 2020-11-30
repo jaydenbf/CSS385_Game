@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerUI : MonoBehaviour
 {
-    bool isColliding = false;
+    public bool isColliding = false;
     public Tower1 tower;
 
     void Start()
