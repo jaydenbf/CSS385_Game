@@ -43,20 +43,20 @@ public class TowerSelect : MonoBehaviour
 
         transform.position = tower.transform.position;
 
-        towerDetails.text = tower.getTowerInfo();
+        towerDetails.text = "5";
         sellButtonText.text = tower.getSellInfo();
         upgradeButtonText.text = tower.getUpgradeInfo();
 
         //set range indicator size... this is not exact
         //rangeIndicator.transform.localScale = new Vector2(tower.range * .8f, tower.range * .8f);
         //rangeIndicator.enabled = true;
-        //ui.SetActive(true);
+        ui.SetActive(true);
     }
 
     public void Hide()
     {
         //rangeIndicator.enabled = false;
-        //ui.SetActive(false);
+        ui.SetActive(false);
 
         if (tower != null)
         {
