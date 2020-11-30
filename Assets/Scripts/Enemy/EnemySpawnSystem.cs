@@ -282,10 +282,10 @@ public class EnemySpawnSystem : MonoBehaviour
         GameObject e = GameObject.Instantiate(eFlyingEye) as GameObject;
 
         // Find target designation
-        PickDestination(1);
+        PickDestination();
 
         // Starting pos
-        e.transform.position = generateValue(true);
+        e.transform.position = generateValue();
         //e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -300,10 +300,10 @@ public class EnemySpawnSystem : MonoBehaviour
         GameObject e = GameObject.Instantiate(eGoblin) as GameObject;
 
         // Find target designation
-        PickDestination(3);
+        PickDestination();
 
         // Starting pos
-        e.transform.position = generateValue(false);
+        e.transform.position = generateValue();
         //e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -318,10 +318,10 @@ public class EnemySpawnSystem : MonoBehaviour
         GameObject e = GameObject.Instantiate(eMushroom) as GameObject;
 
         // Find target designation
-        PickDestination(4);
+        PickDestination();
 
         // Starting pos
-        e.transform.position = generateValue(false);
+        e.transform.position = generateValue();
         // e.transform.rotation = Quaternion.identity(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -336,10 +336,10 @@ public class EnemySpawnSystem : MonoBehaviour
         GameObject e = GameObject.Instantiate(eSkeleton) as GameObject;
 
         // Find target designation
-        PickDestination(2);
+        PickDestination();
 
         // Starting pos
-        e.transform.position = generateValue(true);
+        e.transform.position = generateValue();
         // e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -348,23 +348,30 @@ public class EnemySpawnSystem : MonoBehaviour
         e.GetComponent<DestinationSetter>().target = endDestination.transform;
     }
 
-    private void PickDestination(int endpoint)
+    private void PickDestination()
     {
-        endDestination = GameObject.Find("Endpoint " + endpoint.ToString());
+        int num = UnityEngine.Random.Range(0, 3);
+        if(num == 0)
+        {
+            endDestination = GameObject.Find("Top Endpoint");
+        }
+        else if(num == 1)
+        {
+            endDestination = GameObject.Find("Middle Endpoint");
+        }
+        else
+        {
+            endDestination = GameObject.Find("Bottom Endpoint");
+        }
     }
 
-    private Vector3 generateValue(bool top)
+    private Vector3 generateValue()
     {
         // Generate -7f to 5f
         // groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(-7f, 5f), 0));
 
         // Generate -7f to 5f
-        Vector3 pos;
-        if (top)
-            pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, 4, 0));
-        else
-            pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, -6, 0));
-
+        Vector3 pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(-7, 5), 0));
         pos.z = 0f;
         return pos;
     }

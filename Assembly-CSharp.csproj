@@ -70,7 +70,6 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\TowerRange.cs" />
     <Compile Include="Assets\TowerRangeUI.cs" />
-    <Compile Include="Assets\TowerStats.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
