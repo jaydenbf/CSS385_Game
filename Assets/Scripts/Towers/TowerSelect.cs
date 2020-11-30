@@ -67,6 +67,10 @@ public class TowerSelect : MonoBehaviour
             GameManager.RemoveCash(tower.towerUpgrade.cost);
             
             tower.Upgrade();
+
+            sellButtonText.text = tower.getSellInfo();
+            upgradeButtonText.text = tower.getUpgradeInfo();
+            SetTarget(tower);
         }
     }
 

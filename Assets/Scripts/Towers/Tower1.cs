@@ -19,7 +19,7 @@ public class Tower1 : MonoBehaviour
 
     [Header("Upgrade Values")]
     public float rangeUpgrade = 2f;
-    public float attackSpeedUpgrade = -0.25f;
+    public float attackSpeedUpgrade = 1f;
     public int damageUpgrade = 10;
 
     public string enemyTag = "Enemy";
@@ -132,7 +132,7 @@ public class Tower1 : MonoBehaviour
             "Level " + level + "\n\n" +
             "Damage: " + damage + "→" + (damage + damageUpgrade) + "\n" +
             "Range: " + range + "→" + (range + rangeUpgrade) + "\n" +
-            "Cooldown: " + attackSpeed + "→" + (attackSpeed + attackSpeedUpgrade) + "\n");
+            "Speed: " + attackSpeed + "→" + (attackSpeed + attackSpeedUpgrade) + "\n");
     }
 
     public string getTowerInfo()
