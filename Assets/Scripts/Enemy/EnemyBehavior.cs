@@ -139,16 +139,18 @@ public class EnemyBehavior : MonoBehaviour
 
     private bool InRange(float range)
     {
-        Vector3 targetPos1 = GameObject.Find("Top Endpoint").transform.position;
-        Vector3 targetPos2 = GameObject.Find("Middle Endpoint").transform.position;
-        Vector3 targetPos3 = GameObject.Find("Bottom Endpoint").transform.position;
+        Vector3 targetPos1 = GameObject.Find("Endpoint 1").transform.position;
+        Vector3 targetPos2 = GameObject.Find("Endpoint 2").transform.position;
+        Vector3 targetPos3 = GameObject.Find("Endpoint 3").transform.position;
+        Vector3 targetPos4 = GameObject.Find("Endpoint 4").transform.position;
         float distance = Vector3.Distance(targetPos1, this.transform.position);
         //UnityEngine.Debug.Log(distance);
 
         // Check if its near the target range 
         if ((targetPos1 - this.transform.position).magnitude <= range
             || (targetPos2 - this.transform.position).magnitude <= range
-            || (targetPos3 - this.transform.position).magnitude <= range)
+            || (targetPos3 - this.transform.position).magnitude <= range
+            || (targetPos4 - this.transform.position).magnitude <= range)
         {
             return true;
         }
