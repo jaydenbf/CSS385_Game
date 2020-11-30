@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Tower1 : MonoBehaviour
 {
-    public bool isSelected = false;
-
     public Transform target;
 
     [Header("Attributes")]
@@ -118,19 +116,7 @@ public class Tower1 : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //if(gmanager.selectedTower == null)
-        //{
-        //    gmanager.SelectTower(this);
-        //    gmanager.isSelected = true;
-        //} else
-        //{
-        //    gmanager.selectedTower.isSelected = false;
-        //    gmanager.SelectTower(this);
-        //    gmanager.isSelected = true;
-        //}
-
         gmanager.SelectTower(this);
-
         gmanager.selectionDelay = Time.timeSinceLevelLoad;
     }
 

@@ -27,31 +27,7 @@ public class TowerSelect : MonoBehaviour
 
     public void SetTarget(Tower1 tower_in)
     {
-        if(tower == null)
-        {
-            tower = tower_in;
-            tower.isSelected = true;
-        } else
-        {
-            tower.isSelected = false;
-            tower = tower_in;
-            tower.isSelected = true;
-        }
-
-        //if(tower == null)
-        //{
-        //    Debug.Log("NEW TOWER SELECTED");
-        //    tower.isSelected = false;
-        //    tower = tower_in;
-        //    tower.isSelected = true;
-        //} else
-        //{
-        //    Debug.Log("OLD TOWER UNSELECTED");
-        //    tower.isSelected = false;
-        //    tower = tower_in;
-        //    tower.isSelected = true;
-        //    Debug.Log("NEW TOWER SELECTED");
-        //}
+        tower = tower_in;
 
         transform.position = tower.transform.position;
 
@@ -60,34 +36,25 @@ public class TowerSelect : MonoBehaviour
         upgradeButtonText.text = tower.getUpgradeInfo();
 
         //set range indicator size... this is not exact
-        //rangeIndicator.transform.localScale = new Vector2(tower.range * .8f, tower.range * .8f);
-        //rangeIndicator.enabled = true;
-        //ui.SetActive(true);
+        rangeIndicator.transform.localScale = new Vector2(tower.range * .8f, tower.range * .8f);
+        rangeIndicator.enabled = true;
+        ui.SetActive(true);
     }
 
     public void Hide()
     {
-        if(tower != null)
-        {
-            tower.isSelected = false;
-            tower = null;
-            //towerDetails.text = "";
-            //sellButtonText.text = "";
-            //upgradeButtonText.text = "";
-        }
-
-        //rangeIndicator.enabled = false;
-        //ui.SetActive(false);
+        rangeIndicator.enabled = false;
+        ui.SetActive(false);
     }
 
     public void ClickToSell()
     {
         // refund cash
-            gmanager.addCash(tower.cost);
-            tower.cost = 0;
-            tower.Destroy();
+        gmanager.addCash(tower.cost);
+        tower.cost = 0;
+        tower.Destroy();
 
-            Hide();
+        Hide();
     }
 
     public void ClickToUpgrade()
