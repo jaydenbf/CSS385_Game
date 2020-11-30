@@ -24,6 +24,11 @@ public class TowerSelect : MonoBehaviour
         ui.SetActive(false);
     }
 
+    void Update()
+    {
+
+    }
+
 
     public void SetTarget(Tower1 tower_in)
     {
@@ -34,16 +39,20 @@ public class TowerSelect : MonoBehaviour
         }
         else
         {
-            tower.isSelected = false;
-            tower = tower_in;
-            tower.isSelected = true;
+            Vector3 v = GetMouseWorldPosition();
+            if(v.x <= 7.5)
+            {
+                tower.isSelected = false;
+                tower = tower_in;
+                tower.isSelected = true;
+            }
         }
 
         //tower = tower_in;
 
         transform.position = tower.transform.position;
 
-        towerDetails.text = "5";
+        towerDetails.text = tower.getTowerInfo();
         sellButtonText.text = tower.getSellInfo();
         upgradeButtonText.text = tower.getUpgradeInfo();
 
@@ -60,12 +69,26 @@ public class TowerSelect : MonoBehaviour
 
         if (tower != null)
         {
-            tower.isSelected = false;
-            tower = null;
+            Vector3 v = GetMouseWorldPosition();
+            if(v.x <= 7.5)
+            {
+                tower.isSelected = false;
+                tower = null;
+            }
+
             //towerDetails.text = "";
-            //sellButtonText.text = "";
-            //upgradeButtonText.text = "";
+            sellButtonText.text = "Sell";
+            upgradeButtonText.text = "Upgrade";
         }
+    }
+
+    public static Vector3 GetMouseWorldPosition()
+    {
+        Vector3 v = Input.mousePosition;
+        v = Camera.main.ScreenToWorldPoint(v);
+        v.z = 0.0f;
+
+        return v;
     }
 
     public void ClickToSell()

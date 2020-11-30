@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     public Image roundImage;
 
     public TowerSelect towerSelectedUI;
-    public Tower1 selectedTower = null;
+    public static Tower1 selectedTower = null;
 
     private float time = 3f;
     private static bool updateRoundTime = false;
