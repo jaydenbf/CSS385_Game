@@ -61,6 +61,8 @@ public class EnemySpawnSystem : MonoBehaviour
 
     private bool freshRestart = true;
     public static int[] waveReward;
+
+    private bool hardLevels;
     #endregion
 
     // Start is called before the first frame update
@@ -100,6 +102,9 @@ public class EnemySpawnSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Determine which level you are on
+        DetermineLevel();
+
         if (freshRestart)
         {
             freshRestart = false;
@@ -187,7 +192,7 @@ public class EnemySpawnSystem : MonoBehaviour
             // Spawn a chicken enemy
             if (CanFlyingEyeSpawn())
             {
-                SpawnFlyingEye();
+                SpawnFlyingEye(1);
                 flyingEyeTimePast = 0f;
                 flyingEyeAmount--;
             }
@@ -195,7 +200,7 @@ public class EnemySpawnSystem : MonoBehaviour
             // Spawn a cow enemy
             if (CanGoblinSpawn())
             {
-                SpawnGoblin();
+                SpawnGoblin(3);
                 goblinTimePast = 0f;
                 goblinAmount--;
             }
@@ -203,7 +208,7 @@ public class EnemySpawnSystem : MonoBehaviour
             // Spawn a pig enemy
             if (CanMushroomSpawn())
             {
-                SpawnMushroom();
+                SpawnMushroom(4);
                 mushroomTimePast = 0f;
                 mushroomAmount--;
             }
@@ -211,10 +216,24 @@ public class EnemySpawnSystem : MonoBehaviour
             // Spawn a llama enemy
             if (CanSkeletonSpawn())
             {
-                SpawnSkeleton();
+                SpawnSkeleton(2);
                 skeletonTimePast = 0f;
                 skeletonAmount--;
             }
+        }
+    }
+
+    void DetermineLevel()
+    {
+        int s = SceneManager.GetActiveScene().buildIndex;
+
+        if (s == 2)
+        {
+            hardLevels = false;
+        }
+        else
+        {
+            hardLevels = true;
         }
     }
 
@@ -276,16 +295,16 @@ public class EnemySpawnSystem : MonoBehaviour
     #endregion
 
     #region Spawn Enemies
-    private void SpawnFlyingEye()
+    private void SpawnFlyingEye(int destination)
     {
         // Instantiate Obj
         GameObject e = GameObject.Instantiate(eFlyingEye) as GameObject;
 
         // Find target designation
-        PickDestination(1);
+        PickDestination(destination);
 
         // Starting pos
-        e.transform.position = generateValue(true);
+        e.transform.position = generateValue(true, hardLevels);
         //e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -294,16 +313,16 @@ public class EnemySpawnSystem : MonoBehaviour
         e.GetComponent<DestinationSetter>().target = endDestination.transform;
     }
 
-    private void SpawnGoblin()
+    private void SpawnGoblin(int destination)
     {
         // Instantiate Obj
         GameObject e = GameObject.Instantiate(eGoblin) as GameObject;
 
         // Find target designation
-        PickDestination(3);
+        PickDestination(destination);
 
         // Starting pos
-        e.transform.position = generateValue(false);
+        e.transform.position = generateValue(false, hardLevels);
         //e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -312,16 +331,16 @@ public class EnemySpawnSystem : MonoBehaviour
         e.GetComponent<DestinationSetter>().target = endDestination.transform;
     }
 
-    private void SpawnMushroom()
+    private void SpawnMushroom(int destination)
     {
         // Instantiate Obj
         GameObject e = GameObject.Instantiate(eMushroom) as GameObject;
 
         // Find target designation
-        PickDestination(4);
+        PickDestination(destination);
 
         // Starting pos
-        e.transform.position = generateValue(false);
+        e.transform.position = generateValue(false, hardLevels);
         // e.transform.rotation = Quaternion.identity(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -330,16 +349,16 @@ public class EnemySpawnSystem : MonoBehaviour
         e.GetComponent<DestinationSetter>().target = endDestination.transform;
     }
 
-    private void SpawnSkeleton()
+    private void SpawnSkeleton(int destination)
     {
         // Instantiate Obj
         GameObject e = GameObject.Instantiate(eSkeleton) as GameObject;
 
         // Find target designation
-        PickDestination(2);
+        PickDestination(destination);
 
         // Starting pos
-        e.transform.position = generateValue(true);
+        e.transform.position = generateValue(true, hardLevels);
         // e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -353,19 +372,27 @@ public class EnemySpawnSystem : MonoBehaviour
         endDestination = GameObject.Find("Endpoint " + endpoint.ToString());
     }
 
-    private Vector3 generateValue(bool top)
+    private Vector3 generateValue(bool top, bool hardLevel)
     {
-        // Generate -7f to 5f
-        // groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(-7f, 5f), 0));
-
-        // Generate -7f to 5f
         Vector3 pos;
-        if (top)
-            pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, 4, 0));
+        if (hardLevel)
+        {
+            UnityEngine.Debug.Log("Difficult Level");
+            // Generate -7f to 5f
+            pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(-7, 5), 0));
+            pos.z -= .5f;
+        }
         else
-            pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, -6, 0));
+        {
+            UnityEngine.Debug.Log("Normal Level");
 
-        pos.z = 0f;
+            if (top)
+                pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, 4, 0));
+            else
+                pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, -6, 0));
+            pos.z = 0f;
+        }
+
         return pos;
     }
     #endregion

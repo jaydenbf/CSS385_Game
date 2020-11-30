@@ -66,6 +66,9 @@ TagManager:
   - name: Projectiles
     uniqueID: 516235563
     locked: 0
+  - name: Door
+    uniqueID: 1525196005
+    locked: 0
   - name: Tower UI
     uniqueID: 1522468203
     locked: 0
