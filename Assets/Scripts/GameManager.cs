@@ -240,17 +240,17 @@ public class GameManager : MonoBehaviour
         towerSelectedUI.SetTarget(tower_in);
     }
 
-    public void addCash(int cash_in)
-    {
-        cash += cash_in;
-    }
-
-    public float GetCash()
+    public static int GetCash()
     {
         return cash;
     }
 
-    public void RemoveCash(int cash_out)
+    public static void addCash(int cash_in)
+    {
+        cash += cash_in;
+    }
+
+    public static void RemoveCash(int cash_out)
     {
         cash = cash - cash_out;
     }
