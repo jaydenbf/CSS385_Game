@@ -22,6 +22,7 @@ public class Tower1 : MonoBehaviour
     public int damageUpgrade;
     public float rangeUpgrade;
     public string customUpgradeCode;
+    public int[] upgradeCost;
 
     public string[] upgradeCodes;
 
@@ -248,7 +249,7 @@ public class Tower1 : MonoBehaviour
     public string getUpgradeInfo(bool canUpgrade)
     {
         if (canUpgrade)
-            return ("Upgrade ($" + cost + ")");
+            return ("Upgrade ($" + upgradeCost[level] + ")");
         else
             return ("Max Upgrades");
     }

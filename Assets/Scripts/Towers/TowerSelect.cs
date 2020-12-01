@@ -123,10 +123,10 @@ public class TowerSelect : MonoBehaviour
     {
         if (tower == null)
             return;
-        if (GameManager.cash >= tower.cost && tower.level < 3)
+        if (GameManager.cash >= tower.upgradeCost[tower.level - 1] && tower.level < 3)
         {
             tower.Upgrade();
-            GameManager.cash -= tower.cost;
+            GameManager.cash -= tower.upgradeCost[tower.level - 1];
         }
     }
 
