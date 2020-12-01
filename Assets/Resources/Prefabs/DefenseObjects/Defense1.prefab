@@ -103,7 +103,7 @@ MonoBehaviour:
   towerName: Cannon
   range: 8
   attackSpeed: 0.5
-  damage: 55
+  damage: 60
   level: 1
   note: More Damage
   damageUpgrade: 10
@@ -117,7 +117,7 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   towerUpgrade: {fileID: 6294649660087854891, guid: 9bc8424988f03e04aaae8954812a9486,
     type: 3}
-  cost: 50
+  cost: 40
 --- !u!50 &-5056784566681532517
 Rigidbody2D:
   serializedVersion: 4
