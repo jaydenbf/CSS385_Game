@@ -227,10 +227,8 @@ public class Tower1 : MonoBehaviour
             damage += damageUpgrade;
         if (!noRange)
             range += rangeUpgrade;
-        if (radius)
-            Projectile.GetComponent<Projectile>().AoERadius++;
-        if (bounce)
-            Projectile.GetComponent<Projectile>().attackBounces++;
+        if (radius || bounce)
+            Projectile.GetComponent<Projectile>().needsUpgrading = true;
 
         if (level == 2)
             gameObject.GetComponent<SpriteRenderer>().color = Color.green;

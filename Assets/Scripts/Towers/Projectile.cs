@@ -12,6 +12,8 @@ public class Projectile : MonoBehaviour
     public float attackBounces = 0f;
     public float bounceRange = 4f;
     public string enemyTag = "Enemy";
+    public bool isUpgraded = false;
+    public bool needsUpgrading = false;
 
     public int damage = 50;
 
@@ -25,6 +27,16 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (needsUpgrading)
+        {
+            if (AoERadius > 0)
+                AoERadius++;
+            if (attackBounces > 0)
+                attackBounces++;
+            needsUpgrading = false;
+            isUpgraded = true;
+        }
+
         // if projectile has no target it is destroyed
         if (target == null)
         {
