@@ -102,7 +102,7 @@ MonoBehaviour:
   target: {fileID: 0}
   towerName: Cannon
   range: 8
-  attackSpeed: 0.5
+  attackSpeed: 0.75
   damage: 50
   level: 1
   note: More Damage

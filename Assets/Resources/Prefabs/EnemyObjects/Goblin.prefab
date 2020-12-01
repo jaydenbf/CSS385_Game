@@ -185,7 +185,7 @@ MonoBehaviour:
   health: 90
   targetpos: {fileID: 0}
   healthBar: {fileID: 5661279619648076398}
-  reward: 1
+  reward: 6
   numberOfLives: 2
   animator: {fileID: 5024354077371357889}
   enemyName: 1

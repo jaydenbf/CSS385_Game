@@ -24,7 +24,7 @@ public class UtilityButtons : MonoBehaviour
             ButtonRed();
         else if (gmanager.towerSelectedUI.tower.level == 3)
             NotSelected();
-        else if (GameManager.cash >= gmanager.towerSelectedUI.tower.cost)
+        else if (GameManager.cash >= gmanager.towerSelectedUI.tower.upgradeCost[gmanager.towerSelectedUI.tower.level])
             CanAfford();
         else
             CannotAfford();

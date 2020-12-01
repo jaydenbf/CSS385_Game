@@ -38,7 +38,7 @@ public class EnemyBehavior : MonoBehaviour
        
         if(InRange(1f) || !alive)
         {
-            GameManager.lives -= numberOfLives;
+            GameManager.lives -= numberOfLives * 2;
             EnemyList.Remove(this);
 
             DestroyEnemyFast();

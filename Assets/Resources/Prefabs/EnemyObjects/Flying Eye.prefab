@@ -185,9 +185,10 @@ MonoBehaviour:
   health: 70
   targetpos: {fileID: 0}
   healthBar: {fileID: 6596061033054843801}
-  reward: 1
+  reward: 6
   numberOfLives: 1
   animator: {fileID: 3566997359208347667}
+  enemyName: 0
 --- !u!61 &3566997359208347669
 BoxCollider2D:
   m_ObjectHideFlags: 0
