@@ -238,7 +238,7 @@ public class EnemySpawnSystem : MonoBehaviour
     }
 
     #region Wave Control Functions
-    private bool WaveEnd()
+    public bool WaveEnd()
     {
         return (flyingEyeAmount <= 0 && goblinAmount <= 0 &&
             mushroomAmount <= 0 && skeletonAmount <= 0);
