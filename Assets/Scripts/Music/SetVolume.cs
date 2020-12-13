@@ -6,12 +6,11 @@ using UnityEngine.Audio;
 public class SetVolume : MonoBehaviour
 {
     public AudioMixer mixer;
-    public AudioMixer sfx;
+    // public AudioMixer sfx;
 
     public void SetLevel(float slideValue)
     {
         // Call dont destroy on load to save values
-        DontDestory.musicVol = slideValue;
         mixer.SetFloat("MusicVolume", Mathf.Log10(slideValue) * 20f);
     }
 
