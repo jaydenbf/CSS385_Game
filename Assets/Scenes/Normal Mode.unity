@@ -19563,7 +19563,7 @@ MonoBehaviour:
       - m_Target: {fileID: 104567013}
         m_TargetAssemblyTypeName: SetVolume, Assembly-CSharp
         m_MethodName: SetLevelSFX
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -20630,8 +20630,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "The monsters are escaping the dungeon and wreaking havoc on the city of
-    Setari. Defend aganist a wave of monsters and prevent them from \rreaching the
-    door. If enough monsters reach the door, Setari will no longer exists and all
+    Setari. Defend against a wave of monsters and prevent them from \rreaching the
+    door. If enough monsters reach the door, Setari will no longer exist and all
     the citizens will die. You must defend against these type of monsters"
 --- !u!222 &1726662804
 CanvasRenderer:

@@ -13801,7 +13801,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "The monsters are escaping the dungeon and wreaking havoc on the city of
-    Setari. Defend aganist a wave of monsters and prevent them from \rreaching the
+    Setari. Defend against a wave of monsters and prevent them from \rreaching the
     door. If enough monsters reach the door, Setari will no longer exists and all
     the citizens will die. You must defend against these type of monsters"
 --- !u!222 &1015923312

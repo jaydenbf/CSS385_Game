@@ -39,7 +39,7 @@ public class SetVolume : MonoBehaviour
 
     public void SetLevelSFX(float slideValue)
     {
-        // sfxVol = slideValue;
+        sfxVol = slideValue;
         // sfx.SetFloat("Exposed param", Mathf.Log10(slideValue) * 20f);
     }
 
