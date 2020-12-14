@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     private static Tile background;
 
     public static int lives = 100;
-    public static int cash = 100;
+    public static int cash = 200;
     public static int round = 0;
     public static int killedFlyingEye = 0;
     public static int killedGoblin = 0;
