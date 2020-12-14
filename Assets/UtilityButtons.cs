@@ -16,6 +16,7 @@ public class UtilityButtons : MonoBehaviour
         gmanager = GameObject.FindObjectOfType<GameManager>();
         button = gameObject.GetComponent<Button>();
         buttonText = button.GetComponentInChildren<Text>();
+        es = GameObject.Find("EnemySpawnSystem").GetComponent<EnemySpawnSystem>();
     }
 
     // Update is called once per frame
@@ -38,7 +39,7 @@ public class UtilityButtons : MonoBehaviour
     public void PlayButtonUpdate()
     {
         ColorBlock colors = button.colors;
-        if (es.WaveEnd())
+        if (EnemyBehavior.EnemyList.Count == 0 || es.WaveEnd())
         {
             colors.normalColor = new Color32(50, 207, 23, 150);
             colors.highlightedColor = new Color32(31, 143, 11, 255);
