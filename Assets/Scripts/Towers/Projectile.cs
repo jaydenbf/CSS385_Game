@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour
     public string enemyTag = "Enemy";
     public bool isUpgraded = false;
     public bool needsUpgrading = false;
+    public GameObject particleEffect;
+    ParticleSystem playingParticleEffect;
 
     public int damage = 50;
 
@@ -50,6 +52,7 @@ public class Projectile : MonoBehaviour
         // object hit
         if (dir.magnitude <= distanceThisFrame)
         {
+            PlayParticleEffect();
             HitTarget();
             return;
         }
@@ -95,7 +98,6 @@ public class Projectile : MonoBehaviour
     {
         EnemyBehavior targetEnemy = enemy.GetComponentInParent<EnemyBehavior>();
         targetEnemy.AttackDamageRecieved(damage);
-        // play hit effect (TODO)
     }
 
     void AoEDamage()
@@ -137,5 +139,12 @@ public class Projectile : MonoBehaviour
         {
             target = null;
         }
+    }
+
+    public void PlayParticleEffect()
+    {
+        GameObject firework = Instantiate(particleEffect);
+        firework.transform.position = this.transform.position;
+        firework.GetComponent<ParticleSystem>().Play();
     }
 }

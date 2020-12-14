@@ -31,6 +31,7 @@ public class Tower1 : MonoBehaviour
     public GameObject Projectile;
     public Transform firePoint;
     public Tower1 towerUpgrade = null;
+    public AudioSource soundEffect;
 
     public int cost = 10;
     public int sellValue; 
@@ -127,6 +128,8 @@ public class Tower1 : MonoBehaviour
             bullet.setTarget(target);
             bullet.SetDamage(damage);
         }
+        AudioSource shootSoundEffect = Instantiate(soundEffect);
+        shootSoundEffect.Play();
     }
 
     private void OnMouseDown()

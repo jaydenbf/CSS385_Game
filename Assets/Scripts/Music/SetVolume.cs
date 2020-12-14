@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class SetVolume : MonoBehaviour
 {
     public AudioMixer mixer;
-    // public static AudioMixer sfx;
+    public AudioMixer sfx;
     public Slider musicSlider, sfxSlider;
     private static float musicVol = .05f;
     private static float sfxVol = .05f;
@@ -40,7 +40,7 @@ public class SetVolume : MonoBehaviour
     public void SetLevelSFX(float slideValue)
     {
         sfxVol = slideValue;
-        // sfx.SetFloat("Exposed param", Mathf.Log10(slideValue) * 20f);
+        sfx.SetFloat("sfxVolume", Mathf.Log10(slideValue) * 20f);
     }
 
 }

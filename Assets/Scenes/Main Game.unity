@@ -820,6 +820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: ffa8abd78ff546a43aa5742fe82bba42, type: 2}
+  sfx: {fileID: 24100000, guid: eda1ece888169044897cc3a452cd0957, type: 2}
   musicSlider: {fileID: 460740005}
   sfxSlider: {fileID: 1197039059}
 --- !u!1 &156820488

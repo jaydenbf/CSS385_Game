@@ -117,7 +117,10 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   towerUpgrade: {fileID: 6294649660087854891, guid: 9bc8424988f03e04aaae8954812a9486,
     type: 3}
+  soundEffect: {fileID: 6887980149688128958, guid: cf033d20424ec3f47ade17b5bf404cde,
+    type: 3}
   cost: 80
+  sellValue: 0
 --- !u!50 &-5056784566681532517
 Rigidbody2D:
   serializedVersion: 4
