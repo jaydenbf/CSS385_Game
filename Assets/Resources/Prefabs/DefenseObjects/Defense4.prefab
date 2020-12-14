@@ -103,13 +103,13 @@ MonoBehaviour:
   towerName: Bouncer
   range: 5
   attackSpeed: 0.7
-  damage: 20
+  damage: 24
   level: 1
   note: Bouncing Projectiles
-  damageUpgrade: 10
+  damageUpgrade: 20
   rangeUpgrade: 2
   customUpgradeCode: nodamage3,norange3,bounce3
-  upgradeCost: 000000001400000028000000
+  upgradeCost: 000000003200000064000000
   upgradeCodes: []
   enemyTag: Enemy
   Projectile: {fileID: 1772581913391082171, guid: ee2f5689be8728041bc4b953b77391e0,

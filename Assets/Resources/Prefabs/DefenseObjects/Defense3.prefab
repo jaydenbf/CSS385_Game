@@ -201,10 +201,10 @@ MonoBehaviour:
   damage: 45
   level: 1
   note: AOE Damage
-  damageUpgrade: 10
+  damageUpgrade: 20
   rangeUpgrade: 1
   customUpgradeCode: norange2,radius2
-  upgradeCost: 000000001900000032000000
+  upgradeCost: 00000000320000004b000000
   upgradeCodes: []
   enemyTag: Enemy
   Projectile: {fileID: 4263793719979987434, guid: 9391ce4922f79c3489ddd080b43ef064,

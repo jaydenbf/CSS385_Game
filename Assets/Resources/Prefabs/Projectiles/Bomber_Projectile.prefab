@@ -100,4 +100,6 @@ MonoBehaviour:
   attackBounces: 0
   bounceRange: 4
   enemyTag: Enemy
+  isUpgraded: 0
+  needsUpgrading: 1
   damage: 50

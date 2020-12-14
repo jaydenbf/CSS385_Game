@@ -240,7 +240,7 @@ public class GameManager : MonoBehaviour
     {
         livesUI.text = lives.ToString();
         cashUI.text = cash.ToString();
-        //roundUI.text = (round + 1) + " / 7";
+        roundUI.text = "Round " + (round + 1) + "/7";
     }
 
     public void SelectTower(Tower1 tower_in)

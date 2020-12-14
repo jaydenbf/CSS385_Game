@@ -103,13 +103,13 @@ MonoBehaviour:
   towerName: Gunner
   range: 5
   attackSpeed: 15
-  damage: 1
+  damage: 3
   level: 1
   note: High Fire Rate
-  damageUpgrade: 1
+  damageUpgrade: 3
   rangeUpgrade: 1
   customUpgradeCode: norange3
-  upgradeCost: 000000000a00000019000000
+  upgradeCost: 000000002800000050000000
   upgradeCodes: []
   enemyTag: Enemy
   Projectile: {fileID: 8976793673133718967, guid: ea67a000c124a684382b673864f9464b,

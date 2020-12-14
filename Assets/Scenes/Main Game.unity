@@ -24982,10 +24982,10 @@ MonoBehaviour:
     type: 3}
   eSkeleton: {fileID: 7579890877468130132, guid: ae34fbcb7126e2f4d9d6f3a3f9d503d3,
     type: 3}
-  flyingEyeSpawnTime: 5
-  goblinSpawnTime: 6
-  mushroomSpawnTime: 7
-  skeletonSpawnTime: 8
+  flyingEyeSpawnTime: 0.35
+  goblinSpawnTime: 0.65
+  mushroomSpawnTime: 0.5
+  skeletonSpawnTime: 0.5
   flyingEyeMinSpawnTime: 2
   goblinMinSpawnTime: 3
   mushroomMinSpawmTime: 4

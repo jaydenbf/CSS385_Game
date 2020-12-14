@@ -73,8 +73,16 @@ public class EnemySpawnSystem : MonoBehaviour
         mushroomSpawn = new int[maxWaveCounter];
         skeletonSpawn = new int[maxWaveCounter];
 
+        for (int i = 0; i < maxWaveCounter; i++)
+        {
+            flyingEyeSpawn[i] = 0;
+            mushroomSpawn[i] = 0;
+            goblinSpawn[i] = 0;
+            skeletonSpawn[i] = 0;
+        }
+
         // Inital Wave 1 - 4
-        for(int i = 0; i < 4; i++)
+        /*for(int i = 0; i < 4; i++)
         {
             flyingEyeSpawn[i] = 1 + (i * 2);
             goblinSpawn[i] = 1 + (i * 2);
@@ -89,7 +97,29 @@ public class EnemySpawnSystem : MonoBehaviour
             goblinSpawn[i] = 7 + Random.Range(0, 2);
             mushroomSpawn[i] = 7 + Random.Range(0, 2);
             skeletonSpawn[i] = 7 + Random.Range(0, 2);
-        }
+        }*/
+
+        flyingEyeSpawn[0] = 20;
+
+        flyingEyeSpawn[1] = 30;
+        goblinSpawn[1] = 5;
+
+        flyingEyeSpawn[2] = 50;
+        goblinSpawn[2] = 20;
+
+        flyingEyeSpawn[3] = 40;
+        goblinSpawn[3] = 20;
+        mushroomSpawn[3] = 30;
+
+        flyingEyeSpawn[4] = 100;
+        mushroomSpawn[4] = 25;
+
+        skeletonSpawn[5] = 10;
+
+        
+        flyingEyeSpawn[6] = 150;
+        mushroomSpawn[6] = 75;
+        skeletonSpawn[6] = 10;
 
         // Wave Bonus Rewards
         waveReward = new int[7];
@@ -104,7 +134,6 @@ public class EnemySpawnSystem : MonoBehaviour
     {
         // Determine which level you are on
         DetermineLevel();
-
         if (freshRestart)
         {
             freshRestart = false;
@@ -400,22 +429,22 @@ public class EnemySpawnSystem : MonoBehaviour
     #region Check if enenmy can spawn
     private bool CanFlyingEyeSpawn()
     {
-        return flyingEyeTimePast >= flyingEyeSpawnTime; 
+        return flyingEyeTimePast >= flyingEyeSpawnTime && flyingEyeAmount > 0; 
     }
 
     private bool CanGoblinSpawn()
     {
-        return goblinTimePast >= goblinSpawnTime;
+        return goblinTimePast >= goblinSpawnTime && goblinAmount > 0 && flyingEyeAmount <= 0;
     }
 
     private bool CanMushroomSpawn()
     {
-        return mushroomTimePast >= mushroomSpawnTime;
+        return mushroomTimePast >= mushroomSpawnTime && mushroomAmount > 0 && goblinAmount <= 0;
     }
 
     private bool CanSkeletonSpawn()
     {
-        return skeletonTimePast >= skeletonSpawnTime;
+        return skeletonTimePast >= skeletonSpawnTime &&  skeletonAmount > 0 && mushroomAmount <= 0;
     }
 
     #endregion

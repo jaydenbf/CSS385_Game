@@ -97,7 +97,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   AoERadius: 0
-  attackBounces: 2
+  attackBounces: 3
   bounceRange: 5
   enemyTag: Enemy
+  isUpgraded: 0
+  needsUpgrading: 1
   damage: 50

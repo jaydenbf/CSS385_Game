@@ -102,14 +102,14 @@ MonoBehaviour:
   target: {fileID: 0}
   towerName: Cannon
   range: 8
-  attackSpeed: 0.5
-  damage: 60
+  attackSpeed: 1
+  damage: 86
   level: 1
   note: More Damage
-  damageUpgrade: 10
+  damageUpgrade: 30
   rangeUpgrade: 1
   customUpgradeCode: 
-  upgradeCost: 000000001400000028000000
+  upgradeCost: 00000000320000004b000000
   upgradeCodes: []
   enemyTag: Enemy
   Projectile: {fileID: 8976793673133718967, guid: 624b2fac0a5dbf14fa714699bf4023db,
