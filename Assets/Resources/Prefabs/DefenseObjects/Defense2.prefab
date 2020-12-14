@@ -101,13 +101,13 @@ MonoBehaviour:
   isSelected: 0
   target: {fileID: 0}
   towerName: Gunner
-  range: 5
+  range: 3
   attackSpeed: 15
   damage: 5
   level: 1
   note: High Fire Rate
   damageUpgrade: 5
-  rangeUpgrade: 1
+  rangeUpgrade: 2
   customUpgradeCode: norange3
   upgradeCost: 0000000050000000a0000000
   upgradeCodes: []

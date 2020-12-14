@@ -101,7 +101,7 @@ MonoBehaviour:
   isSelected: 0
   target: {fileID: 0}
   towerName: Cannon
-  range: 8
+  range: 4.5
   attackSpeed: 1
   damage: 86
   level: 1

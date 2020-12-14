@@ -196,7 +196,7 @@ MonoBehaviour:
   isSelected: 0
   target: {fileID: 0}
   towerName: Bomber
-  range: 5
+  range: 2.5
   attackSpeed: 0.7
   damage: 39
   level: 1

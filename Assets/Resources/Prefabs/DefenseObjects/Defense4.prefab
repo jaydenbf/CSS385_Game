@@ -101,7 +101,7 @@ MonoBehaviour:
   isSelected: 0
   target: {fileID: 0}
   towerName: Bouncer
-  range: 5
+  range: 2.5
   attackSpeed: 0.7
   damage: 24
   level: 1
