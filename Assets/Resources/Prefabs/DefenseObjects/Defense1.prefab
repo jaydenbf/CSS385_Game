@@ -106,7 +106,7 @@ MonoBehaviour:
   damage: 86
   level: 1
   note: More Damage
-  damageUpgrade: 30
+  damageUpgrade: 36
   rangeUpgrade: 1
   customUpgradeCode: 
   upgradeCost: 000000006400000096000000
