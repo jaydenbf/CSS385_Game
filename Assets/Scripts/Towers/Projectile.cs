@@ -56,6 +56,9 @@ public class Projectile : MonoBehaviour
         {
             PlayParticleEffect();
             HitTarget();
+            Destroy(this.gameObject);
+            Destroy(firework, firework.GetComponent<ParticleSystem>().main.duration);
+            // Destroy(playingParticleEffect);
             return;
         }
 
@@ -147,6 +150,7 @@ public class Projectile : MonoBehaviour
 
     public void PlayParticleEffect()
     {
-        firework.GetComponent<ParticleSystem>().Emit(50);
+        firework.transform.position = target.position;
+        firework.GetComponent<ParticleSystem>().Play();
     }
 }

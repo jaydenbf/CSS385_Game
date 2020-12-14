@@ -37,6 +37,8 @@ public class Tower1 : MonoBehaviour
     public int sellValue; 
     private GameManager gmanager;
     private GameObject upgrade;
+
+    public List<Projectile> ProjectileList = new List<Projectile>();
     // Start is called before the first frame update
     void Start()
     {
