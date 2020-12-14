@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Threading;
 public class Projectile : MonoBehaviour
 {
 
@@ -18,12 +18,14 @@ public class Projectile : MonoBehaviour
     ParticleSystem playingParticleEffect;
 
     public int damage = 50;
-
+    private GameObject firework; 
     // Start is called before the first frame update
     void Start()
     {
         //Tower1 parentTower = this.transform.GetComponentInParent<Tower1>();
         //damage = parentTower.damage;
+        firework = Instantiate(particleEffect);
+        firework.transform.position = this.transform.position;
     }
 
     // Update is called once per frame
@@ -78,7 +80,8 @@ public class Projectile : MonoBehaviour
         if (AoERadius > 0)
         {
             AoEDamage();
-        } else
+        }
+        else
         {
             Damage(target);
         }
@@ -92,6 +95,7 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     void Damage(Transform enemy)
@@ -143,8 +147,6 @@ public class Projectile : MonoBehaviour
 
     public void PlayParticleEffect()
     {
-        GameObject firework = Instantiate(particleEffect);
-        firework.transform.position = this.transform.position;
-        firework.GetComponent<ParticleSystem>().Play();
+        firework.GetComponent<ParticleSystem>().Emit(50);
     }
 }

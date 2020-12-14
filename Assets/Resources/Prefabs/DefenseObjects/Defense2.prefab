@@ -117,8 +117,7 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   towerUpgrade: {fileID: 6197017829946700104, guid: 962babefe2429ca4cb09aedc4435b5af,
     type: 3}
-  soundEffect: {fileID: 2038510500143584907, guid: e57851c967e87bd4382a77358a890ee6,
-    type: 3}
+  soundEffect: {fileID: 8300000, guid: 8fc07e0b0a4a7e04a96a1d8cf033b8d9, type: 3}
   cost: 60
   sellValue: 0
 --- !u!50 &-8587596827883317890

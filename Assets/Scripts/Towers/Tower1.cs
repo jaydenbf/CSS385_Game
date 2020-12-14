@@ -31,13 +31,12 @@ public class Tower1 : MonoBehaviour
     public GameObject Projectile;
     public Transform firePoint;
     public Tower1 towerUpgrade = null;
-    public AudioSource soundEffect;
+    public AudioClip soundEffect;
 
     public int cost = 10;
     public int sellValue; 
     private GameManager gmanager;
     private GameObject upgrade;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +51,7 @@ public class Tower1 : MonoBehaviour
 
         upgradeCodes = customUpgradeCode.Split(',');
         sellValue = cost - 20;
+        // shootSoundEffect = Instantiate(soundEffect);
     }
 
     // Update is called once per frame
@@ -128,8 +128,8 @@ public class Tower1 : MonoBehaviour
             bullet.setTarget(target);
             bullet.SetDamage(damage);
         }
-        AudioSource shootSoundEffect = Instantiate(soundEffect);
-        shootSoundEffect.Play();
+        Vector3 pos = new Vector3(0, 0, 0);
+        AudioSource.PlayClipAtPoint(soundEffect, pos);
     }
 
     private void OnMouseDown()
