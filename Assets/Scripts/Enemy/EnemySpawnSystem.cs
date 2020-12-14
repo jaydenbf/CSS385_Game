@@ -102,23 +102,25 @@ public class EnemySpawnSystem : MonoBehaviour
         flyingEyeSpawn[0] = 20;
 
         flyingEyeSpawn[1] = 30;
-        goblinSpawn[1] = 5;
+        goblinSpawn[1] = 10;
 
         flyingEyeSpawn[2] = 50;
-        goblinSpawn[2] = 20;
+        goblinSpawn[2] = 40;
 
         flyingEyeSpawn[3] = 40;
-        goblinSpawn[3] = 20;
+        goblinSpawn[3] = 40;
         mushroomSpawn[3] = 30;
 
         flyingEyeSpawn[4] = 100;
+        goblinSpawn[4] = 20;
         mushroomSpawn[4] = 25;
 
         skeletonSpawn[5] = 10;
 
         
         flyingEyeSpawn[6] = 150;
-        mushroomSpawn[6] = 75;
+        goblinSpawn[6] = 60;
+        mushroomSpawn[6] = 40;
         skeletonSpawn[6] = 10;
 
         // Wave Bonus Rewards
@@ -333,7 +335,7 @@ public class EnemySpawnSystem : MonoBehaviour
         PickDestination(destination);
 
         // Starting pos
-        e.transform.position = generateValue(true, hardLevels);
+        e.transform.position = generateValue(true, hardLevels, 0);
         //e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -351,7 +353,7 @@ public class EnemySpawnSystem : MonoBehaviour
         PickDestination(destination);
 
         // Starting pos
-        e.transform.position = generateValue(false, hardLevels);
+        e.transform.position = generateValue(false, hardLevels, 0);
         //e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -369,7 +371,7 @@ public class EnemySpawnSystem : MonoBehaviour
         PickDestination(destination);
 
         // Starting pos
-        e.transform.position = generateValue(false, hardLevels);
+        e.transform.position = generateValue(false, hardLevels,2);
         // e.transform.rotation = Quaternion.identity(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -387,7 +389,7 @@ public class EnemySpawnSystem : MonoBehaviour
         PickDestination(destination);
 
         // Starting pos
-        e.transform.position = generateValue(true, hardLevels);
+        e.transform.position = generateValue(true, hardLevels,1);
         // e.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         e.transform.rotation = Quaternion.identity;
 
@@ -401,14 +403,34 @@ public class EnemySpawnSystem : MonoBehaviour
         endDestination = GameObject.Find("Endpoint " + endpoint.ToString());
     }
 
-    private Vector3 generateValue(bool top, bool hardLevel)
+    /*
+     * 0 =  middle
+     * 1  = top
+     * 2 = bot
+     * 
+     */
+    private Vector3 generateValue(bool top, bool hardLevel, int type)
     {
         Vector3 pos;
         if (hardLevel)
         {
             UnityEngine.Debug.Log("Difficult Level");
-            // Generate -7f to 5f
-            pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(-7, 5), 0));
+            // Middle
+            if(type == 0)
+            {
+                pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, -1, 0));
+            }
+            // top
+            else if(type == 1)
+            {
+                pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, 5, 0));
+            }
+            // bot
+            else
+            {
+                pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, -7, 0));
+            }
+
             pos.z -= .5f;
         }
         else

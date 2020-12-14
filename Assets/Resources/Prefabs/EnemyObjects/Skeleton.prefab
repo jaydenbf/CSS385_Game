@@ -182,11 +182,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 1
-  health: 1000
+  health: 1500
   targetpos: {fileID: 0}
   healthBar: {fileID: 7129658687086313609}
-  reward: 15
-  numberOfLives: 3
+  reward: 5
+  numberOfLives: 6
   animator: {fileID: 7579890877468130135}
   enemyName: 3
 --- !u!50 &7579890877468130137

@@ -24985,7 +24985,7 @@ MonoBehaviour:
   flyingEyeSpawnTime: 0.35
   goblinSpawnTime: 0.65
   mushroomSpawnTime: 0.5
-  skeletonSpawnTime: 0.5
+  skeletonSpawnTime: 2
   flyingEyeMinSpawnTime: 2
   goblinMinSpawnTime: 3
   mushroomMinSpawmTime: 4
