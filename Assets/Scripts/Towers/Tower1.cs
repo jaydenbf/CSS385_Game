@@ -175,23 +175,23 @@ public class Tower1 : MonoBehaviour
         if (noDamage)
             str += "Damage: " + damage + "\n";
         else
-            str += "Damage: " + damage + "→" + (damage + damageUpgrade) + "\n";
+            str += "Damage: " + damage + "->" + (damage + damageUpgrade) + "\n";
 
         if (noRange)
             str += "Range: " + range + "\n";
         else
-            str += "Range: " + range + "→" + (range + rangeUpgrade) + "\n";
+            str += "Range: " + range + "->" + (range + rangeUpgrade) + "\n";
 
         if (radius)
         {
             float temp = Projectile.GetComponent<Projectile>().AoERadius;
-            str += "Radius: " + temp + "→" + ++temp + "\n";
+            str += "Radius: " + temp + "->" + ++temp + "\n";
         }
 
         if (bounce)
         {
             float temp = Projectile.GetComponent<Projectile>().attackBounces;
-            str += "Bounces: " + temp + "→" + ++temp + "\n";
+            str += "Bounces: " + temp + "->" + ++temp + "\n";
         }
 
         return str;
