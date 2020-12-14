@@ -102,6 +102,6 @@ MonoBehaviour:
   enemyTag: Enemy
   isUpgraded: 0
   needsUpgrading: 1
-  particleEffect: {fileID: 6319857171248337301, guid: f4f95d964d897b1499892df4a466d2e4,
+  particleEffect: {fileID: 971407657381472287, guid: d1dda83c21de0a147aaf57f7da81b3f4,
     type: 3}
   damage: 50
