@@ -109,7 +109,7 @@ MonoBehaviour:
   damageUpgrade: 3
   rangeUpgrade: 1
   customUpgradeCode: norange3
-  upgradeCost: 000000002800000050000000
+  upgradeCost: 0000000050000000a0000000
   upgradeCodes: []
   enemyTag: Enemy
   Projectile: {fileID: 8976793673133718967, guid: ea67a000c124a684382b673864f9464b,
@@ -117,7 +117,7 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   towerUpgrade: {fileID: 6197017829946700104, guid: 962babefe2429ca4cb09aedc4435b5af,
     type: 3}
-  cost: 30
+  cost: 60
 --- !u!50 &-8587596827883317890
 Rigidbody2D:
   serializedVersion: 4

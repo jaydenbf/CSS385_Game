@@ -125,7 +125,7 @@ public class EnemySpawnSystem : MonoBehaviour
         waveReward = new int[7];
         for (int i = 0; i < 7; i++)
         {
-            waveReward[i] = 20;
+            waveReward[i] = 100;
         }
     }
 
@@ -303,7 +303,7 @@ public class EnemySpawnSystem : MonoBehaviour
     {
         GameManager.SaveRoundInfo();
         GameManager.lives = 100;
-        GameManager.cash = 100;
+        GameManager.cash = 200;
         GameManager.round = 0;
         EnemyBehavior.EnemyList.Clear();
 

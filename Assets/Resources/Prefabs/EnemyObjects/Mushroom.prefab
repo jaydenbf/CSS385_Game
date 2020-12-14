@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 1
-  health: 500
+  health: 300
   targetpos: {fileID: 0}
   healthBar: {fileID: 9083441558039847130}
   reward: 10
