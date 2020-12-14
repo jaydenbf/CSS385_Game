@@ -39,7 +39,7 @@ public class UtilityButtons : MonoBehaviour
     public void PlayButtonUpdate()
     {
         ColorBlock colors = button.colors;
-        if (EnemyBehavior.EnemyList.Count == 0 || es.WaveEnd())
+        if (EnemyBehavior.EnemyList.Count == 0 && es.WaveEnd())
         {
             colors.normalColor = new Color32(50, 207, 23, 150);
             colors.highlightedColor = new Color32(31, 143, 11, 255);

@@ -37,7 +37,7 @@ public class WinLossMenu : MonoBehaviour
         mushroomKilled = GameManager.lastKilledMushroom;
         skeletonKilled = GameManager.lastKilledSkeleton;
 
-        roundReachUI.text = "Round Reached:\t\t\t\t\t" + roundReach + " / 7";
+        roundReachUI.text = "Round Reached:\t\t\t\t" + roundReach + " / 7";
 
         // Show Lives Count
         if(livesLeft < 0)
@@ -45,11 +45,11 @@ public class WinLossMenu : MonoBehaviour
             livesLeft = 0;
         }
 
-        livesLeftUI.text = "Lives Left:\t\t\t\t\t\t\t\t" + livesLeft + " / 100";
+        livesLeftUI.text = "Lives Left:\t\t\t\t\t" + livesLeft + " / 100";
 
         int totalAmount = flyingEyeKilled + goblinKilled + mushroomKilled + skeletonKilled;
         // Show total Enemy kill count
-        totalEnemyKilled.text = "Total Enemies Killed:\t\t\t" + totalAmount;
+        totalEnemyKilled.text = "Total Enemies Killed:\t\t" + totalAmount;
 
         // Show Individual Enemy Kill Count
         flyingEyeCount.text = "" + flyingEyeKilled;
