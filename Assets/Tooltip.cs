@@ -28,7 +28,7 @@ public class Tooltip : MonoBehaviour
 
         Vector3 pos = gameObject.transform.position;
         pos.x -= tooltipText.preferredWidth;
-        pos.y += 120;
+        // pos.y += 120;
         gameObject.transform.position = pos;
 
     }

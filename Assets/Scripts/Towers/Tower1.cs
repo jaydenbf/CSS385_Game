@@ -253,7 +253,7 @@ public class Tower1 : MonoBehaviour
     public string getUpgradeInfo(bool canUpgrade)
     {
         if (canUpgrade)
-            return ("Upgrade ($" + upgradeCost[level] + ")");
+            return ("Upgrade($" + upgradeCost[level] + ")");
         else
             return ("Max Upgrades");
     }
