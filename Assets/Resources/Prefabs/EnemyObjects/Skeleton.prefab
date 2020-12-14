@@ -137,7 +137,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 2.5
+  maxSpeed: 1
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -182,13 +182,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 1
-  health: 500
+  health: 1000
   targetpos: {fileID: 0}
   healthBar: {fileID: 7129658687086313609}
   reward: 15
   numberOfLives: 3
   animator: {fileID: 7579890877468130135}
-  sellValue: 0
   enemyName: 3
 --- !u!50 &7579890877468130137
 Rigidbody2D:

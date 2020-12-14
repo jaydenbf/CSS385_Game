@@ -8,6 +8,13 @@ public class Healthbar : MonoBehaviour
 
     public Slider slider;
 
+    void Update()
+    {
+        if(slider.value <= 0)
+        {
+            slider.gameObject.SetActive(false);
+        }
+    }
 
     public void SetHealth(int health)
     {

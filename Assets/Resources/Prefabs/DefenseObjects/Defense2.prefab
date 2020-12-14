@@ -103,10 +103,10 @@ MonoBehaviour:
   towerName: Gunner
   range: 5
   attackSpeed: 15
-  damage: 3
+  damage: 5
   level: 1
   note: High Fire Rate
-  damageUpgrade: 3
+  damageUpgrade: 5
   rangeUpgrade: 1
   customUpgradeCode: norange3
   upgradeCost: 0000000050000000a0000000
@@ -118,6 +118,7 @@ MonoBehaviour:
   towerUpgrade: {fileID: 6197017829946700104, guid: 962babefe2429ca4cb09aedc4435b5af,
     type: 3}
   cost: 60
+  sellValue: 0
 --- !u!50 &-8587596827883317890
 Rigidbody2D:
   serializedVersion: 4
