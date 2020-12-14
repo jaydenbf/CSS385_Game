@@ -418,17 +418,17 @@ public class EnemySpawnSystem : MonoBehaviour
             // Middle
             if(type == 0)
             {
-                pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, -1, 0));
+                pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(-3, 1), 0));
             }
             // top
             else if(type == 1)
             {
-                pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, 5, 0));
+                pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(4, 5), 0));
             }
             // bot
             else
             {
-                pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, -7, 0));
+                pos = groundTiles.GetCellCenterWorld(new Vector3Int(-12, UnityEngine.Random.Range(-7,-4), 0));
             }
 
             pos.z -= .5f;
