@@ -15,7 +15,6 @@ public class EnemyBehavior : MonoBehaviour
     public int numberOfLives;
     public Animator animator;
     public static List<EnemyBehavior> EnemyList = new List<EnemyBehavior>();
-
     public int enemyName;
 
     private bool callDestoryOnce = true;

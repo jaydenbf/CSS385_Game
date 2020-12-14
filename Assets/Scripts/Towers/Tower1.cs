@@ -33,7 +33,7 @@ public class Tower1 : MonoBehaviour
     public Tower1 towerUpgrade = null;
 
     public int cost = 10;
-
+    public int sellValue; 
     private GameManager gmanager;
     private GameObject upgrade;
 
@@ -50,6 +50,7 @@ public class Tower1 : MonoBehaviour
         gmanager = GameObject.FindObjectOfType<GameManager>();
 
         upgradeCodes = customUpgradeCode.Split(',');
+        sellValue = cost - 20;
     }
 
     // Update is called once per frame
@@ -206,6 +207,8 @@ public class Tower1 : MonoBehaviour
     public void Upgrade()
     {
         level += 1;
+        sellValue += (upgradeCost[level -1] / 2);
+
         bool noDamage = false;
         bool noRange = false;
         bool radius = false;
@@ -241,7 +244,7 @@ public class Tower1 : MonoBehaviour
 
     public string getSellInfo()
     {
-        return ("Sell $" + cost);
+        return ("Sell $" + sellValue);
     }
 
     public string getUpgradeInfo(bool canUpgrade)

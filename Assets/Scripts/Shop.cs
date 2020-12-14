@@ -18,7 +18,7 @@ public class Shop : MonoBehaviour
     private void Update()
     {
         if (gmanager.towerSelectedUI != null && gmanager.towerSelectedUI.ui.activeSelf)
-            sellText.text = "Sell ($" + gmanager.towerSelectedUI.tower.cost.ToString() + ")";
+            sellText.text = "Sell ($" + gmanager.towerSelectedUI.tower.sellValue.ToString() + ")";
         else
             sellText.text = "Sell";
     }

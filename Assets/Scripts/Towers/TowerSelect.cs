@@ -110,7 +110,7 @@ public class TowerSelect : MonoBehaviour
         }
 
         // refund cash
-        GameManager.addCash(tower.cost);
+        GameManager.addCash(tower.sellValue);
         tower.cost = 0;
         tower.Destroy();
         tower = null;
