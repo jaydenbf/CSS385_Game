@@ -48,8 +48,8 @@ public class UtilityButtons : MonoBehaviour
         }
         else
         {
-            colors.normalColor = new Color32(134, 219, 141, 150);
-            colors.highlightedColor = new Color32(80, 171, 88, 255);
+            colors.normalColor = new Color32(245, 245, 245, 150);
+            colors.highlightedColor = new Color32(225, 225, 225, 150);
             button.colors = colors;
             buttonText.text = "In Progress";
         }

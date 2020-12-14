@@ -10,8 +10,8 @@ public class SetVolume : MonoBehaviour
     public AudioMixer mixer;
     // public static AudioMixer sfx;
     public Slider musicSlider, sfxSlider;
-    private static float musicVol = .5f;
-    private static float sfxVol = .5f;
+    private static float musicVol = .05f;
+    private static float sfxVol = .05f;
     private static int sceneID;
 
     void Awake()
